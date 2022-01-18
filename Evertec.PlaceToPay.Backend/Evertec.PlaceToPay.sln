@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evertec.PlaceToPay.Web.Rest", "src\Evertec.PlaceToPay.Web.Rest\Evertec.PlaceToPay.Web.Rest.csproj", "{8A5C0F3A-38EE-44A2-BC0C-CDE6CB4F905B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Distributed Services", "1. Distributed Services", "{624EAE7C-0A82-489D-AF47-895987C19436}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Application", "2. Application", "{F6ACBE75-50A1-4D08-976F-72EE3607E36D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{9AB0048E-FFD9-4D57-BB94-0986F7CE0EC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infrastructure", "4. Infrastructure", "{40416F4C-1AA5-40E2-848C-E4421B9E8ECF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evertec.PlaceToPay.AppServices", "src\Evertec.PlaceToPay.AppServices\Evertec.PlaceToPay.AppServices.csproj", "{056EBEE0-1900-4284-846C-C6D5AB8813FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evertec.PlaceToPay.Domain", "src\Evertec.PlaceToPay.Domain\Evertec.PlaceToPay.Domain.csproj", "{80D9CB9D-34A2-41A8-BFC1-85B8A06CE6A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evertec.PlaceToPay.Domain.Entities", "src\Evertec.PlaceToPay.Domain.Entities\Evertec.PlaceToPay.Domain.Entities.csproj", "{77ED829C-B9E1-4C0E-A001-50F32C1B3EC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evertec.PlaceToPay.Domain.Services", "src\Evertec.PlaceToPay.Domain.Services\Evertec.PlaceToPay.Domain.Services.csproj", "{754E61C6-6C97-474C-8C19-3C735639953F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Common", "5. Common", "{190BF030-B9DB-4A2B-A5D7-1AC1139A3182}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evertec.PlaceToPay.Data", "src\Evertec.PlaceToPay.Data\Evertec.PlaceToPay.Data.csproj", "{311556B1-1084-427D-B844-FA22F1AB2247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evertec.PlaceToPay.Ioc", "src\Evertec.PlaceToPay.Ioc\Evertec.PlaceToPay.Ioc.csproj", "{B0CD206D-4894-46CA-8581-1352C25EF037}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A5C0F3A-38EE-44A2-BC0C-CDE6CB4F905B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5C0F3A-38EE-44A2-BC0C-CDE6CB4F905B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5C0F3A-38EE-44A2-BC0C-CDE6CB4F905B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5C0F3A-38EE-44A2-BC0C-CDE6CB4F905B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056EBEE0-1900-4284-846C-C6D5AB8813FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056EBEE0-1900-4284-846C-C6D5AB8813FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056EBEE0-1900-4284-846C-C6D5AB8813FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056EBEE0-1900-4284-846C-C6D5AB8813FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D9CB9D-34A2-41A8-BFC1-85B8A06CE6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D9CB9D-34A2-41A8-BFC1-85B8A06CE6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D9CB9D-34A2-41A8-BFC1-85B8A06CE6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D9CB9D-34A2-41A8-BFC1-85B8A06CE6A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77ED829C-B9E1-4C0E-A001-50F32C1B3EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77ED829C-B9E1-4C0E-A001-50F32C1B3EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77ED829C-B9E1-4C0E-A001-50F32C1B3EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77ED829C-B9E1-4C0E-A001-50F32C1B3EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{754E61C6-6C97-474C-8C19-3C735639953F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{754E61C6-6C97-474C-8C19-3C735639953F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{754E61C6-6C97-474C-8C19-3C735639953F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{754E61C6-6C97-474C-8C19-3C735639953F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{311556B1-1084-427D-B844-FA22F1AB2247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{311556B1-1084-427D-B844-FA22F1AB2247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{311556B1-1084-427D-B844-FA22F1AB2247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{311556B1-1084-427D-B844-FA22F1AB2247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CD206D-4894-46CA-8581-1352C25EF037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CD206D-4894-46CA-8581-1352C25EF037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CD206D-4894-46CA-8581-1352C25EF037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CD206D-4894-46CA-8581-1352C25EF037}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8A5C0F3A-38EE-44A2-BC0C-CDE6CB4F905B} = {624EAE7C-0A82-489D-AF47-895987C19436}
+		{056EBEE0-1900-4284-846C-C6D5AB8813FB} = {F6ACBE75-50A1-4D08-976F-72EE3607E36D}
+		{80D9CB9D-34A2-41A8-BFC1-85B8A06CE6A3} = {9AB0048E-FFD9-4D57-BB94-0986F7CE0EC4}
+		{77ED829C-B9E1-4C0E-A001-50F32C1B3EC3} = {9AB0048E-FFD9-4D57-BB94-0986F7CE0EC4}
+		{754E61C6-6C97-474C-8C19-3C735639953F} = {9AB0048E-FFD9-4D57-BB94-0986F7CE0EC4}
+		{311556B1-1084-427D-B844-FA22F1AB2247} = {40416F4C-1AA5-40E2-848C-E4421B9E8ECF}
+		{B0CD206D-4894-46CA-8581-1352C25EF037} = {190BF030-B9DB-4A2B-A5D7-1AC1139A3182}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7F52FF9-9E34-49EC-853C-45C57AB96E10}
+	EndGlobalSection
+EndGlobal
