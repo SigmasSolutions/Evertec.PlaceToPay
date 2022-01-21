@@ -7,13 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Evertec.PlaceToPay.Data
+namespace Evertec.PlaceToPay.Data.Repositories
 {
-    public class PaymenRepository : RepositoryBase<Payments>, IPaymentRepository
+    public class PaymentRepository : RepositoryBase<Payments>, IPaymentRepository
     {
         private readonly RepositoryContext _repositoryContext;
 
-        public PaymenRepository(RepositoryContext repositoryContext)
+        public PaymentRepository(RepositoryContext repositoryContext)
             : base(repositoryContext)
         {
             this._repositoryContext = repositoryContext;

@@ -5,14 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Evertec.PlaceToPay.Domain.Entities
 {
-    public class Payments
+    public class Orders
     {
-        public Payments()
+        public Orders()
         {
         }
 
         public int OrderId { get; set; }
-        public int PaymentId { get; set; }
-        public string ProcessUrl { get; set; }
+        public string Status { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

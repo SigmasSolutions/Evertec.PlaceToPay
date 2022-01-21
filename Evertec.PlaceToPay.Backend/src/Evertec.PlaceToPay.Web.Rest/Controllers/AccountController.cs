@@ -1,4 +1,5 @@
-﻿using Evertec.PlaceToPay.Domain.Entities;
+﻿using Evertec.PlaceToPay.AppServices.Interfaces;
+using Evertec.PlaceToPay.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -15,28 +16,25 @@ namespace Evertec.PlaceToPay.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly ILogger<AccountController> _logger;
+        private readonly IAccountAppService _accountAppService;
 
-        public AccountController(ILogger<AccountController> logger)
+        public AccountController(IAccountAppService accountAppService)
         {
-            _logger = logger;
+            _accountAppService = accountAppService;
         }
 
         [HttpPost("Login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] Users user)
         {
-            return new OkObjectResult(null);
+            return await _accountAppService.Login(user);
         }
 
         [AllowAnonymous]
         [HttpPost("Registration")]
-        public async Task<ServiceResult<Users>> Registration([FromBody] Users model)
+        public async Task<ServiceResult<Users>> Registration([FromBody] Users user)
         {
-            ServiceResult<Users> result = new ServiceResult<Users>();
-           
-
-            return result;
+            return await _accountAppService.Registration(user);
         }
     }
 }

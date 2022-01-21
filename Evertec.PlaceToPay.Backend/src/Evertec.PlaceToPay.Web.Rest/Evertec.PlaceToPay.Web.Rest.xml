@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Evertec.PlaceToPay.Web.Rest</name>
+    </assembly>
+    <members>
+        <member name="P:Evertec.PlaceToPay.Startup.GetApiInfo">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Evertec.PlaceToPay.Startup.GetApiContact">
+             <summary>
+            
+             </summary>
+        </member>
+    </members>
+</doc>

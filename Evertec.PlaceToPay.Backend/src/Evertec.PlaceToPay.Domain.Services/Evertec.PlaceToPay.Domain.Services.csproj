@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.15.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Evertec.PlaceToPay.Domain.Entities\Evertec.PlaceToPay.Domain.Entities.csproj" />
     <ProjectReference Include="..\Evertec.PlaceToPay.Domain\Evertec.PlaceToPay.Domain.csproj" />
   </ItemGroup>

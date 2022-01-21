@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Evertec.PlaceToPay.Data
+namespace Evertec.PlaceToPay.Data.Repositories
 {
     public class OrderRepository : RepositoryBase<Orders>, IOrderRepository
     {

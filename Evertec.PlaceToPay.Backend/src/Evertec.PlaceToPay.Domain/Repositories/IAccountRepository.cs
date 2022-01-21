@@ -9,7 +9,7 @@ namespace Evertec.PlaceToPay.Domain.Repositories
 {
     public interface IAccountRepository : IRepositoryBase<Users>
     {
-        public Task<IActionResult> Login(Users user);
-        public Task<ServiceResult<Users>> Registration(Users model);
+        public Task<Users> Login(Users user);
+        public Task<Users> Registration(Users model);
     }
 }

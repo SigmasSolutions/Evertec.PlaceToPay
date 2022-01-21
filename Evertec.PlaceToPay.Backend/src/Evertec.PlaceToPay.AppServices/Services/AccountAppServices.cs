@@ -11,21 +11,21 @@ namespace Evertec.PlaceToPay.AppServices.Services
 {
     public class AccountAppServices: IAccountAppService
     {
-        private readonly IAccountDomainService service;
+        private readonly IAccountDomainService _service;
 
         public AccountAppServices(IAccountDomainService service)
         {
-            this.service = service;
+            _service = service;
         }
 
-        public Task<IActionResult> Login(Users user)
+        public async Task<IActionResult> Login(Users user)
         {
-            throw new NotImplementedException();
+            return await _service.Login(user);
         }
 
-        public Task<ServiceResult<Users>> Registration(Users model)
+        public async Task<ServiceResult<Users>> Registration(Users user)
         {
-            throw new NotImplementedException();
+            return await _service.Registration(user);
         }
     }
 }

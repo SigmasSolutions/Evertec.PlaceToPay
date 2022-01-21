@@ -11,16 +11,16 @@ namespace Evertec.PlaceToPay.AppServices.Services
 {
     public class PaymentAppServices: IPaymentAppService
     {
-        private readonly IPaymentDomainService service;
+        private readonly IPaymentDomainService _service;
 
         public PaymentAppServices(IPaymentDomainService service)
         {
-            this.service = service;
+            _service = service;
         }
 
-        public Task<ServiceResult<Payments>> MakePayment(int orderId)
+        public async Task<ServiceResult<Payments>> MakePayment(int orderId)
         {
-            throw new NotImplementedException();
+            return await _service.MakePayment(orderId);
         }
     }
 }

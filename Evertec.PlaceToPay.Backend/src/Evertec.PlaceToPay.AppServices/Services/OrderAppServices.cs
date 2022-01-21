@@ -11,26 +11,26 @@ namespace Evertec.PlaceToPay.AppServices.Services
 {
     public class OrderAppServices: IOrderAppService
     {
-        private readonly IOrderDomainService service;
+        private readonly IOrderDomainService _service;
 
         public OrderAppServices(IOrderDomainService service)
         {
-            this.service = service;
+            _service = service;
         }
 
-        public Task<ServiceResult<Orders>> CreateOrder(Orders order)
+        public async Task<ServiceResult<Orders>> CreateOrder(Orders order)
         {
-            throw new NotImplementedException();
+            return await _service.CreateOrder(order);
         }
 
-        public Task<ServiceResult<Orders>> GetOrder(int orderId)
+        public async Task<ServiceResult<Orders>> GetOrder(int orderId)
         {
-            throw new NotImplementedException();
+            return await _service.GetOrder(orderId);
         }
 
-        public Task<ServiceResult<List<Orders>>> GetOrders()
+        public async Task<ServiceResult<List<Orders>>> GetOrders()
         {
-            throw new NotImplementedException();
+            return await _service.GetOrders();
         }
     }
 }

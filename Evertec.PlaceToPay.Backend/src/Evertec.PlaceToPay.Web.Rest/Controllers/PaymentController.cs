@@ -1,4 +1,5 @@
-﻿using Evertec.PlaceToPay.Domain.Entities;
+﻿using Evertec.PlaceToPay.AppServices.Interfaces;
+using Evertec.PlaceToPay.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -15,18 +16,18 @@ namespace Evertec.PlaceToPay.Controllers
     [Route("api/[controller]")]
     public class PaymentController : ControllerBase
     {
-        private readonly ILogger<PaymentController> _logger;
+        private readonly IPaymentAppService _service;
 
-        public PaymentController(ILogger<PaymentController> logger)
+        public PaymentController(IPaymentAppService service)
         {
-            _logger = logger;
+            _service = service;
         }
 
         [Authorize]
         [HttpPost("MakePayment/{orderId}")]
         public async Task<ServiceResult<Payments>> MakePayment(int orderId)
         {
-            return null;
+            return await _service.MakePayment(orderId);
         }
     }
 }
