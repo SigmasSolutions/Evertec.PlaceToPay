@@ -38,7 +38,8 @@ namespace Evertec.PlaceToPay.Domain.Entities
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
-                entity.Property(e => e.Reference).ValueGeneratedOnAdd();
+                entity.Property(e => e.Reference).ValueGeneratedOnAdd()
+                .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
 
                 entity.HasOne(d => d.Status)
                     .WithMany(p => p.Orders)

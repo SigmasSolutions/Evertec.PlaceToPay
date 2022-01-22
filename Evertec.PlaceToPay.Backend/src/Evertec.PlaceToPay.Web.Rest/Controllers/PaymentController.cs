@@ -29,5 +29,13 @@ namespace Evertec.PlaceToPay.Controllers
         {
             return await _service.MakePayment(orderId);
         }
+
+        /*[Authorize]*/
+        [AllowAnonymous]
+        [HttpPost("UpdatePayment/{orderId}/{paymentId}")]
+        public async Task<ServiceResult<Payments>> UpdatePayment(Guid orderId, Guid paymentId)
+        {
+            return await _service.UpdatePayment(orderId, paymentId);
+        }
     }
 }

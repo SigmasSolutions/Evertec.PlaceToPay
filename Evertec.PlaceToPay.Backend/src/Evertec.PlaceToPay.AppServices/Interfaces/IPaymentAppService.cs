@@ -7,5 +7,6 @@ namespace Evertec.PlaceToPay.AppServices.Interfaces
     public interface IPaymentAppService
     {
         public Task<ServiceResult<Payments>> MakePayment(Guid orderId);
+        public Task<ServiceResult<Payments>> UpdatePayment(Guid orderId, Guid paymentId);
     }
 }

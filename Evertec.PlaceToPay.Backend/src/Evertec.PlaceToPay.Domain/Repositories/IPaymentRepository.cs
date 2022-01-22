@@ -8,6 +8,6 @@ namespace Evertec.PlaceToPay.Domain.Repositories
 {
     public interface IPaymentRepository : IRepositoryBase<Payments>
     {
-        public Task<ServiceResult<Payments>> MakePayment(int orderId);
+        public Task<Payments> GetPayment(Guid paymentId);
     }
 }

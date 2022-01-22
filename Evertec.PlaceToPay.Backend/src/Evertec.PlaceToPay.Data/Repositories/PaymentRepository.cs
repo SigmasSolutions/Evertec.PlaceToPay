@@ -3,6 +3,7 @@ using Evertec.PlaceToPay.Domain.Entities;
 using Evertec.PlaceToPay.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,9 +20,9 @@ namespace Evertec.PlaceToPay.Data.Repositories
             this._repositoryContext = repositoryContext;
         }
 
-        public Task<ServiceResult<Payments>> MakePayment(int orderId)
+        public async Task<Payments> GetPayment(Guid paymentId)
         {
-            throw new System.NotImplementedException();
+            return await this.RepositoryContext.Set<Payments>().Where(x => x.PaymentId == paymentId).FirstOrDefaultAsync();
         }
     }
 }

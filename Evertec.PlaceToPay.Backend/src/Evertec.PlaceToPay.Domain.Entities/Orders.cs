@@ -19,10 +19,15 @@ namespace Evertec.PlaceToPay.Domain.Entities
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        
+        [NotMapped]
         public long Reference { get; set; }
 
+        [NotMapped]
         public virtual Status Status { get; set; }
+        [NotMapped]
         public virtual Users User { get; set; }
+        [NotMapped]
         public virtual ICollection<Payments> Payments { get; set; }
     }
 }

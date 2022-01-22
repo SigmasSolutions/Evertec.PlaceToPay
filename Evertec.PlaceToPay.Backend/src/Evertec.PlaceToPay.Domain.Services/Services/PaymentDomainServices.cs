@@ -37,14 +37,52 @@ namespace Evertec.PlaceToPay.Domain.Services
             try
             {
                 Orders order = await _orderRepository.GetOrder(orderId);
-                Guid paymentId = Guid.NewGuid();
-                CreateRequest createRequestquest = CreateRequestPayment(order, paymentId);
+
+                if (order.StatusId != (int)StatusEnum.Payed)
+                {
+                    Guid paymentId = Guid.NewGuid();
+                    CreateRequest createRequestquest = CreateRequestPayment(order, paymentId);
+                    var httpClient = _httpClientFactory.CreateClient();
+                    string request = JsonConvert.SerializeObject(createRequestquest);
+                    var response = await httpClient.PostAsync(_configuration["BaseUrlPlaceToPay"], new StringContent(request, Encoding.UTF8, "application/json"));
+                    ResponsePlaceToPay responsePlaceToPay = JsonConvert.DeserializeObject<ResponsePlaceToPay>(await response.Content.ReadAsStringAsync());
+                    Payments payment = CreatePayment(orderId, paymentId, responsePlaceToPay.processUrl, responsePlaceToPay.requestId);
+                    result.Result = payment;
+                    result.Success = true;
+                }
+                else
+                {
+                    ValidationFailure validationFailure = new ValidationFailure("Payment", MessageError.PaymentDone);
+                    result.Errors = new List<ValidationFailure>() { validationFailure };
+                    result.Success = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ValidationFailure validationFailure = new ValidationFailure("Payment", MessageError.PaymentError);
+                result.Errors = new List<ValidationFailure>() { validationFailure };
+                result.Success = false;
+            }
+
+            return result;
+        }
+
+        public async Task<ServiceResult<Payments>> UpdatePayment(Guid orderId, Guid paymentId)
+        {
+            ServiceResult<Payments> result = new ServiceResult<Payments>();
+
+            try
+            {
+                Payments payment = await _repository.GetPayment(paymentId);
+                CreateRequestQuery createRequestQuery = BuildCreateRequestQuery();
                 var httpClient = _httpClientFactory.CreateClient();
-                string request = JsonConvert.SerializeObject(createRequestquest);
-                var response = await httpClient.PostAsync(_configuration["BaseUrlPlaceToPay"], new StringContent(request, Encoding.UTF8, "application/json"));
+                string request = JsonConvert.SerializeObject(createRequestQuery);
+                var response = await httpClient.PostAsync($"{_configuration["BaseUrlPlaceToPay"]}/{payment.RequestId}", new StringContent(request, Encoding.UTF8, "application/json"));
                 ResponsePlaceToPay responsePlaceToPay = JsonConvert.DeserializeObject<ResponsePlaceToPay>(await response.Content.ReadAsStringAsync());
-                Payments payment = CreatePayment(orderId, paymentId, responsePlaceToPay.processUrl, responsePlaceToPay.requestId);
-                result.Result = payment;
+                Payments paymentUpdate = await UpdatePayment(payment, responsePlaceToPay);
+                await UpdateOrder(orderId, responsePlaceToPay);
+                result.Result = paymentUpdate;
                 result.Success = true;
 
             }
@@ -56,6 +94,53 @@ namespace Evertec.PlaceToPay.Domain.Services
             }
 
             return result;
+        }
+
+        private async Task<Payments> UpdatePayment(Payments payment, ResponsePlaceToPay responsePlaceToPay)
+        {
+            StatusEnum status = GetStatusPayment(responsePlaceToPay.status.status);
+            payment.StatusId = (int)status;
+            await _repository.Update(payment);
+            return payment;
+        }
+
+        private StatusEnum GetStatusPayment(string status)
+        {
+            StatusEnum statusEnum = StatusEnum.Created;
+
+            switch (status)
+            {
+                case "APPROVED":
+                    statusEnum = StatusEnum.Payed;
+                    break;
+                case "REJECTED":
+                    statusEnum = StatusEnum.Rejected;
+                    break;
+                default:
+                    break;
+            }
+
+            return statusEnum;
+        }
+
+        private async Task UpdateOrder(Guid orderId, ResponsePlaceToPay responsePlaceToPay)
+        {
+            StatusEnum status = GetStatusPayment(responsePlaceToPay.status.status);
+            Orders order = await _orderRepository.GetOrder(orderId);
+            order.StatusId = (int)status;
+            await _orderRepository.Update(order);
+        }
+
+        private CreateRequestQuery BuildCreateRequestQuery()
+        {
+            CreateRequestQuery createRequestQuery = new CreateRequestQuery();
+            Auth auth = new Auth();
+            auth.login = _placeToPayAuthentication.getLogin();
+            auth.nonce = _placeToPayAuthentication.getNonce();
+            auth.seed = _placeToPayAuthentication.getSeed();
+            auth.tranKey = _placeToPayAuthentication.getTranKey();
+            createRequestQuery.auth = auth;
+            return createRequestQuery;
         }
 
         private Payments CreatePayment(Guid orderId, Guid paymentId, string processUrl, int requestId)
@@ -93,9 +178,5 @@ namespace Evertec.PlaceToPay.Domain.Services
             return createRequest;
         }
 
-        public Task<ServiceResult<Payments>> UpdatePayment(Guid paymentId, Guid orderId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
