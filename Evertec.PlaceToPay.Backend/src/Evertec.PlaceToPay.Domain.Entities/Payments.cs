@@ -7,12 +7,14 @@ namespace Evertec.PlaceToPay.Domain.Entities
 {
     public class Payments
     {
-        public Payments()
-        {
-        }
+        public Guid PaymentId { get; set; }
+        public Guid OrderId { get; set; }
+        public int StatusId { get; set; }
+        public DateTime CreatedAt { get; set; }
 
-        public int OrderId { get; set; }
-        public int PaymentId { get; set; }
+        public virtual Orders Order { get; set; }
         public string ProcessUrl { get; set; }
+
+        public int RequestId { get; set; }
     }
 }

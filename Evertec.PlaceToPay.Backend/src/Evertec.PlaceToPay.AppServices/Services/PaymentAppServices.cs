@@ -18,7 +18,7 @@ namespace Evertec.PlaceToPay.AppServices.Services
             _service = service;
         }
 
-        public async Task<ServiceResult<Payments>> MakePayment(int orderId)
+        public async Task<ServiceResult<Payments>> MakePayment(Guid orderId)
         {
             return await _service.MakePayment(orderId);
         }

@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.15.1" />
     <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
@@ -26,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Evertec.PlaceToPay.Domain.Entities\Evertec.PlaceToPay.Domain.Entities.csproj" />
     <ProjectReference Include="..\Evertec.PlaceToPay.Ioc\Evertec.PlaceToPay.Ioc.csproj" />
+    <ProjectReference Include="..\Evertec.PlaceToPay.Utility\Evertec.PlaceToPay.Utility.csproj" />
   </ItemGroup>
 
 

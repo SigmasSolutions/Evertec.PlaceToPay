@@ -1,4 +1,5 @@
-﻿using Evertec.PlaceToPay.Domain.Entities;
+﻿using Evertec.PlaceToPay.AppServices.Interfaces;
+using Evertec.PlaceToPay.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -11,36 +12,38 @@ using System.Threading.Tasks;
 namespace Evertec.PlaceToPay.Controllers
 {
     [ApiController]
-    [EnableCors("CorsPolicy")]
     [Route("api/[controller]")]
     public class OrderController : ControllerBase
     {
-        private readonly ILogger<OrderController> _logger;
+        private readonly IOrderAppService _orderAppService;
 
-        public OrderController(ILogger<OrderController> logger)
+        public OrderController(IOrderAppService orderAppService)
         {
-            _logger = logger;
+            _orderAppService = orderAppService;
         }
 
-        [Authorize]
-        [HttpGet("GetOrders")]
-        public async Task<ServiceResult<List<Orders>>> GetOrders()
+        /*[Authorize]*/
+        [AllowAnonymous]
+        [HttpGet("GetOrdersByUsers/{userId}")]
+        public async Task<ServiceResult<List<Orders>>> GetOrdersByUsers(Guid userId)
         {
-            return null;
+            return await _orderAppService.GetOrdersByUsers(userId);
         }
 
-        [Authorize]
+        /*[Authorize]*/
+        [AllowAnonymous]
         [HttpGet("GetOrder/{orderId}")]
-        public async Task<ServiceResult<Orders>> GetOrder(int orderId)
+        public async Task<ServiceResult<Orders>> GetOrder(Guid orderId)
         {
-            return null;
+            return await _orderAppService.GetOrder(orderId);
         }
 
-        [Authorize]
+        /*[Authorize]*/
+        [AllowAnonymous]
         [HttpPost("CreateOrder")]
         public async Task<ServiceResult<Orders>> CreateOrder([FromBody] Orders order)
         {
-            return null;
+            return await _orderAppService.CreateOrder(order);
         }
     }
 }

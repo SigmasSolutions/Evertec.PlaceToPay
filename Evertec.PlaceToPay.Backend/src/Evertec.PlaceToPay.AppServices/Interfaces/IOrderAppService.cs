@@ -8,8 +8,8 @@ namespace Evertec.PlaceToPay.AppServices.Interfaces
 {
     public interface IOrderAppService
     {
-        public Task<ServiceResult<List<Orders>>> GetOrders();
-        public Task<ServiceResult<Orders>> GetOrder(int orderId);
+        public Task<ServiceResult<List<Orders>>> GetOrdersByUsers(Guid userId);
+        public Task<ServiceResult<Orders>> GetOrder(Guid orderId);
         public Task<ServiceResult<Orders>> CreateOrder(Orders order);
     }
 }

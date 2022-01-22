@@ -23,14 +23,14 @@ namespace Evertec.PlaceToPay.AppServices.Services
             return await _service.CreateOrder(order);
         }
 
-        public async Task<ServiceResult<Orders>> GetOrder(int orderId)
+        public async Task<ServiceResult<Orders>> GetOrder(Guid orderId)
         {
             return await _service.GetOrder(orderId);
         }
 
-        public async Task<ServiceResult<List<Orders>>> GetOrders()
+        public async Task<ServiceResult<List<Orders>>> GetOrdersByUsers(Guid userId)
         {
-            return await _service.GetOrders();
+            return await _service.GetOrdersByUsers(userId);
         }
     }
 }

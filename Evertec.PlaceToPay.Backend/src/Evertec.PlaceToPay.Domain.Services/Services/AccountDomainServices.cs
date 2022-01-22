@@ -1,8 +1,10 @@
 ﻿using Evertec.PlaceToPay.Domain.Entities;
 using Evertec.PlaceToPay.Domain.Repositories;
 using Evertec.PlaceToPay.Domain.Services.Interfaces;
+using Evertec.PlaceToPay.Utility;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,11 +16,13 @@ namespace Evertec.PlaceToPay.Domain.Services
     {
         private readonly IAccountRepository _repository;
         private readonly IAuthenticationDomainService _service;
+        private readonly IConfiguration _configuration;
 
-        public AccountDomainServices(IAccountRepository repository, IAuthenticationDomainService service)
+        public AccountDomainServices(IConfiguration configuration, IAccountRepository repository, IAuthenticationDomainService service)
         {
             _repository = repository;
             _service = service;
+            _configuration = configuration;
         }
 
         public async Task<IActionResult> Login(Users user)
@@ -27,6 +31,7 @@ namespace Evertec.PlaceToPay.Domain.Services
 
             try
             {
+                user.Password = Encrypt.EncryptString(user.Password, _configuration["KeyEncription"]);
                 user = await _repository.Login(user);
 
                 if (user == null)
@@ -53,9 +58,47 @@ namespace Evertec.PlaceToPay.Domain.Services
             return new OkObjectResult(result);
         }
 
-        public Task<ServiceResult<Users>> Registration(Users model)
+        public async Task<ServiceResult<Users>> Registration(Users user)
         {
-            throw new NotImplementedException();
+            ServiceResult<Users> result = new ServiceResult<Users>();
+
+            try
+            {
+                Users userExists = await _repository.UsersExists(user);
+
+                if (userExists == null)
+                {
+                    user.Password = Encrypt.EncryptString(user.Password, _configuration["KeyEncription"]);
+                    user.UserId = Guid.NewGuid();
+                    await _repository.Registration(user);
+
+                    if (user == null)
+                    {
+                        ValidationFailure validationFailure = new ValidationFailure("User", MessageError.UserNotSaved);
+                        result.Errors = new List<ValidationFailure>() { validationFailure };
+                        result.Success = false;
+                    }
+                    else
+                    {
+                        result.Success = true;
+                    }
+                }
+                else
+                {
+                    ValidationFailure validationFailure = new ValidationFailure("User", MessageError.EmailExists);
+                    result.Errors = new List<ValidationFailure>() { validationFailure };
+                    result.Success = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ValidationFailure validationFailure = new ValidationFailure("User", ex.Message);
+                result.Errors = new List<ValidationFailure>() { validationFailure };
+                result.Success = false;
+            }
+
+            return result;
         }
     }
 }

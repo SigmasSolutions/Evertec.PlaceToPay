@@ -9,11 +9,20 @@ namespace Evertec.PlaceToPay.Domain.Entities
     {
         public Orders()
         {
+            Payments = new HashSet<Payments>();
         }
 
-        public int OrderId { get; set; }
-        public string Status { get; set; }
+        public Guid OrderId { get; set; }
+        public Guid UserId { get; set; }
+        public decimal Amount { get; set; }
+        public int StatusId { get; set; }
+        public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public long Reference { get; set; }
+
+        public virtual Status Status { get; set; }
+        public virtual Users User { get; set; }
+        public virtual ICollection<Payments> Payments { get; set; }
     }
 }

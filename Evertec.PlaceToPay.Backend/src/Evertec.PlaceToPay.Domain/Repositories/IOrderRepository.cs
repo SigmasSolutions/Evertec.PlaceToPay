@@ -8,8 +8,8 @@ namespace Evertec.PlaceToPay.Domain.Repositories
 {
     public interface IOrderRepository : IRepositoryBase<Orders>
     {
-        public Task<ServiceResult<List<Orders>>> GetOrders();
-        public Task<ServiceResult<Orders>> GetOrder(int orderId);
-        public Task<ServiceResult<Orders>> CreateOrder(Orders order);
+        public Task<List<Orders>> GetOrdersByUsers(Guid userId);
+        public Task<Orders> GetOrder(Guid orderId);
+        public Task CreateOrder(Orders order);
     }
 }

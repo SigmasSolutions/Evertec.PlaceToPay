@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 namespace Evertec.PlaceToPay.Controllers
 {
     [ApiController]
-    [EnableCors("CorsPolicy")]
     [Route("api/[controller]")]
     public class PaymentController : ControllerBase
     {
@@ -23,9 +22,10 @@ namespace Evertec.PlaceToPay.Controllers
             _service = service;
         }
 
-        [Authorize]
+        /*[Authorize]*/
+        [AllowAnonymous]
         [HttpPost("MakePayment/{orderId}")]
-        public async Task<ServiceResult<Payments>> MakePayment(int orderId)
+        public async Task<ServiceResult<Payments>> MakePayment(Guid orderId)
         {
             return await _service.MakePayment(orderId);
         }

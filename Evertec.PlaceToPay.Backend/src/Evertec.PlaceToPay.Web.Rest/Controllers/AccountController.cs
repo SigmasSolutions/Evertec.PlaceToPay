@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 namespace Evertec.PlaceToPay.Controllers
 {
     [ApiController]
-    [EnableCors("CorsPolicy")]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {

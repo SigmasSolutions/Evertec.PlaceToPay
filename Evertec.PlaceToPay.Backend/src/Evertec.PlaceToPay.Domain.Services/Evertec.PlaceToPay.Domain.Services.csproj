@@ -6,12 +6,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.15.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Evertec.PlaceToPay.Domain.Entities\Evertec.PlaceToPay.Domain.Entities.csproj" />
     <ProjectReference Include="..\Evertec.PlaceToPay.Domain\Evertec.PlaceToPay.Domain.csproj" />
+    <ProjectReference Include="..\Evertec.PlaceToPay.Utility\Evertec.PlaceToPay.Utility.csproj" />
   </ItemGroup>
 
 </Project>

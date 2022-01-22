@@ -19,14 +19,19 @@ namespace Evertec.PlaceToPay.Data.Repositories
             this._repositoryContext = repositoryContext;
         }
 
-        public Task<Users> Login(Users user)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public async Task<Users> Registration(Users user)
+        public async Task<Users> Login(Users user)
         {
             return await this.RepositoryContext.Set<Users>().Where(x => x.Email == user.Email && x.Password == user.Password).FirstOrDefaultAsync();
+        }
+
+        public async Task Registration(Users user)
+        {
+            await this.Create(user);
+        }
+
+        public async Task<Users> UsersExists(Users user)
+        {
+            return await this.RepositoryContext.Set<Users>().Where(x => x.Email == user.Email).FirstOrDefaultAsync();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Evertec.PlaceToPay.Domain.Entities;
 using Evertec.PlaceToPay.Domain.Repositories;
 using Evertec.PlaceToPay.Domain.Services.Interfaces;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,26 +11,49 @@ namespace Evertec.PlaceToPay.Domain.Services
 {
     public class OrderDomainServices : IOrderDomainService
     {
-        private readonly IOrderRepository repository;
+        private readonly IOrderRepository _repository;
 
         public OrderDomainServices(IOrderRepository repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
-        public Task<ServiceResult<Orders>> CreateOrder(Orders order)
+        public async Task<ServiceResult<Orders>> CreateOrder(Orders order)
         {
-            throw new NotImplementedException();
+            ServiceResult<Orders> result = new ServiceResult<Orders>();
+
+            try
+            {
+                order.OrderId = Guid.NewGuid();
+                order.StatusId = (int)StatusEnum.Created;
+                await _repository.CreateOrder(order);
+                result.Success = true;
+                result.Result = order;
+            }
+            catch (Exception ex)
+            {
+                ValidationFailure validationFailure = new ValidationFailure("Order", ex.Message);
+                result.Errors = new List<ValidationFailure>() { validationFailure };
+                result.Success = false;
+            }
+
+            return result;
         }
 
-        public Task<ServiceResult<Orders>> GetOrder(int orderId)
+        public async Task<ServiceResult<Orders>> GetOrder(Guid orderId)
         {
-            throw new NotImplementedException();
+            ServiceResult<Orders> result = new ServiceResult<Orders>();
+            result.Result = await _repository.GetOrder(orderId);
+            result.Success = true;
+            return result;
         }
 
-        public Task<ServiceResult<List<Orders>>> GetOrders()
+        public async Task<ServiceResult<List<Orders>>> GetOrdersByUsers(Guid userId)
         {
-            throw new NotImplementedException();
+            ServiceResult<List<Orders>> result = new ServiceResult<List<Orders>>();
+            result.Result = await _repository.GetOrdersByUsers(userId);
+            result.Success = true;
+            return result;
         }
     }
 }

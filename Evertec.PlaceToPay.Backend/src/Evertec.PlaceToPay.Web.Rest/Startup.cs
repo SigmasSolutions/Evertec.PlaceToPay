@@ -1,6 +1,7 @@
 using Evertec.PlaceToPay.Domain.Entities;
 using Evertec.PlaceToPay.Domain.Services;
 using Evertec.PlaceToPay.Domain.Services.Interfaces;
+using Evertec.PlaceToPay.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -77,11 +79,15 @@ namespace Evertec.PlaceToPay
                        };
                    });
 
+            services.AddMvc()
+                .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
             services.AddHttpClient<IPaymentDomainService, PaymentDomainServices>(client => {
                 client.BaseAddress = new Uri(Configuration["BaseUrlPlaceToPay"]);
             }).SetHandlerLifetime(TimeSpan.FromMinutes(5));
 
             Evertec.PlaceToPay.Ioc.IoCConfiguration.Configure(services);
+            services.AddScoped<PlaceToPayAuthentication, PlaceToPayAuthentication>();
 
             AddSwagger(services);
             services.AddHealthChecks();
