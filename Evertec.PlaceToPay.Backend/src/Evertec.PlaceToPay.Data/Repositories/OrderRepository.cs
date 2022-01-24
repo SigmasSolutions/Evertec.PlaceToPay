@@ -1,7 +1,7 @@
 ﻿
 using Evertec.PlaceToPay.Domain.Entities;
+using Evertec.PlaceToPay.Domain.Models;
 using Evertec.PlaceToPay.Domain.Repositories;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

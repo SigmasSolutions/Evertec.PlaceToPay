@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Evertec.PlaceToPay.Domain.Entities
+namespace Evertec.PlaceToPay.Domain.Models
 {
     public class SwaggerConfiguration
     {

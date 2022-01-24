@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Evertec.PlaceToPay.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Evertec.PlaceToPay.Domain.Entities
+namespace Evertec.PlaceToPay.Domain.Models
 {
     public partial class RepositoryContext : DbContext
     {

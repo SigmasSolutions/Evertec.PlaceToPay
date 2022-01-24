@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Evertec.PlaceToPay.Domain.Entities
+namespace Evertec.PlaceToPay.Domain.Models
 {
     public class ServiceResult<TResult>
     {

@@ -1,4 +1,5 @@
 ﻿using Evertec.PlaceToPay.Domain.Entities;
+using Evertec.PlaceToPay.Domain.Models;
 using System;
 using System.Threading.Tasks;
 

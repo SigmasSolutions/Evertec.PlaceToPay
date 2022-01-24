@@ -29,6 +29,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evertec.PlaceToPay.Ioc", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evertec.PlaceToPay.Utility", "src\Evertec.PlaceToPay.Utility\Evertec.PlaceToPay.Utility.csproj", "{FB1984E3-B826-4CE7-9270-7AFCD9459904}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Test", "6. Test", "{7A2DE9AF-F994-457E-9E5C-6AB3B00AA3D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evertec.PlaceToPay.Test", "src\Evertec.PlaceToPay.Test\Evertec.PlaceToPay.Test.csproj", "{83BE3306-5D61-4DCD-9EE2-AEA1DD55B5DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,10 @@ Global
 		{FB1984E3-B826-4CE7-9270-7AFCD9459904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB1984E3-B826-4CE7-9270-7AFCD9459904}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB1984E3-B826-4CE7-9270-7AFCD9459904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83BE3306-5D61-4DCD-9EE2-AEA1DD55B5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83BE3306-5D61-4DCD-9EE2-AEA1DD55B5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83BE3306-5D61-4DCD-9EE2-AEA1DD55B5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83BE3306-5D61-4DCD-9EE2-AEA1DD55B5DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +88,7 @@ Global
 		{311556B1-1084-427D-B844-FA22F1AB2247} = {40416F4C-1AA5-40E2-848C-E4421B9E8ECF}
 		{B0CD206D-4894-46CA-8581-1352C25EF037} = {190BF030-B9DB-4A2B-A5D7-1AC1139A3182}
 		{FB1984E3-B826-4CE7-9270-7AFCD9459904} = {190BF030-B9DB-4A2B-A5D7-1AC1139A3182}
+		{83BE3306-5D61-4DCD-9EE2-AEA1DD55B5DC} = {7A2DE9AF-F994-457E-9E5C-6AB3B00AA3D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7F52FF9-9E34-49EC-853C-45C57AB96E10}

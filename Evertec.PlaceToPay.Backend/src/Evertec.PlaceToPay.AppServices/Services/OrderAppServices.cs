@@ -1,10 +1,9 @@
 ﻿using Evertec.PlaceToPay.AppServices.Interfaces;
 using Evertec.PlaceToPay.Domain.Entities;
+using Evertec.PlaceToPay.Domain.Models;
 using Evertec.PlaceToPay.Domain.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Evertec.PlaceToPay.AppServices.Services

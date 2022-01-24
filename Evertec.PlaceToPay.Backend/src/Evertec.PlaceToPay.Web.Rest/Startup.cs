@@ -1,4 +1,4 @@
-using Evertec.PlaceToPay.Domain.Entities;
+using Evertec.PlaceToPay.Domain.Models;
 using Evertec.PlaceToPay.Domain.Services;
 using Evertec.PlaceToPay.Domain.Services.Interfaces;
 using Evertec.PlaceToPay.Utility;

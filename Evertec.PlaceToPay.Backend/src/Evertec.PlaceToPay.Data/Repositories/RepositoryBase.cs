@@ -1,5 +1,5 @@
 ﻿using Evertec.PlaceToPay.Domain;
-using Evertec.PlaceToPay.Domain.Entities;
+using Evertec.PlaceToPay.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
