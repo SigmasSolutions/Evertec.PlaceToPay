@@ -1,0 +1,101 @@
+<section class="container cuore-main_section">
+  <app-title-head [titleName]="'Order.Titulo' | translate"> </app-title-head>
+
+  <app-pre-table
+    (eventChangeNumber)="numberRecordsData($event)"
+    (eventExport)="exportData()"
+    (eventUpdateData)="updateData()"
+  ></app-pre-table>
+  <div class="table-responsive" *ngIf="listOrder?.Result?.length > 0 || filters">
+    <table
+      [ngClass]="defaultStyleTable"
+      matSort
+      (matSortChange)="sortData($event)"
+    >
+      <caption>
+        Tabla de registros paginados de la entidad
+        {{
+          "Order.Titulo" | translate
+        }}.
+      </caption>
+      <thead class="text-nowrap">
+        <tr>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Date'"
+              [typeFilter]="'datetime'"
+              [titleName]="'Order.Labels.date' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'GuidLog'"
+              [typeFilter]="'string'"
+              [titleName]="'Order.Labels.guidLog' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Message'"
+              [typeFilter]="'string'"
+              [titleName]="'Order.Labels.message' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Read'"
+              [typeFilter]="'bool'"
+              [titleName]="'Order.Labels.read' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Active'"
+              [typeFilter]="'bool'"
+              [titleName]="'Order.Labels.active' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Item of listOrder?.Result" (dblclick)="openModal(Item)">
+          <td>{{ Item.date | date: inputDatetimeFormat }}</td>
+          <td>{{ Item.guidLog }}</td>
+          <td>{{ Item.message }}</td>
+          <td><app-icon [showIcon]="Item.read"></app-icon></td>
+          <td><app-icon [showIcon]="Item.active"></app-icon></td>
+
+          <td class="d-flex flex-column">
+            <app-table-btn
+              (updateClick)="openModal(Item)"
+              [ActiveDelete]="false"
+              [ActiveUpdate]="false"
+              (varClick)="openModal(Item, true)"
+              (eliminarClick)="onDelete(Item)"
+            >
+            </app-table-btn>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-no-results [showError]="listOrder?.Result?.length === 0"></app-no-results>
+  <app-paginator
+    (event)="pageData($event)"
+    [page]="page"
+  >
+  </app-paginator>
+</section>

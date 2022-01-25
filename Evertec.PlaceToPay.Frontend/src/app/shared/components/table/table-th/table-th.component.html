@@ -1,0 +1,2 @@
+<span [ngbTooltip]="sort?.direction | translate:sort" [mat-sort-header]="columnName">{{titleName}}</span>
+<app-filter-column [columnFilter]="columnName" [typeFilter]="typeFilter" [titleName]="titleName" (eventChangeFilter)="btnFilterClick($event)"></app-filter-column>

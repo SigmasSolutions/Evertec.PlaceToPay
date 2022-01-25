@@ -1,0 +1,23 @@
+.container-button {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    border-bottom-left-radius: calc(0.3rem - 1px);
+    padding: 0 0.75rem;
+}
+
+.container-button button{
+    margin: .25rem;
+}
+
+@media only screen and (max-width: 770px){
+    .container-button {
+        flex-direction: column-reverse;
+    }
+
+    .btnEpm{
+        overflow: initial !important;
+    }
+}

@@ -1,0 +1,35 @@
+<div *ngIf="pagedPage?.maxCount > 0" style="padding-top: 20px;">
+  <ngb-pagination class="d-flex justify-content-end" style="float: right;" [collectionSize]="pagedPage?.maxCount"
+    [pageSize]="pagedPage?.pageSize" (pageChange)="pageChange($event)" [page]="page ? page : 1" [maxSize]="maxSize"
+    [rotate]="true" [ellipses]="false" [boundaryLinks]="true" *ngIf="pagedPage?.totalPages > 1">
+
+    <ng-template ngbPaginationFirst>
+      <span class="cuore-btn_ico icon-epm-angle-double-left"></span>
+      Ir al primero
+    </ng-template>
+    <ng-template ngbPaginationLast>
+      Ir al último
+      <span class="cuore-btn_ico icon-epm-angle-double-right"></span>
+    </ng-template>
+    <ng-template ngbPaginationPrevious>
+      <span class="cuore-btn_ico icon-epm-angle-left"></span>
+      Anterior
+    </ng-template>
+    <ng-template ngbPaginationNext>
+      Siguiente
+      <span class="cuore-btn_ico icon-epm-angle-right"></span>
+    </ng-template>
+    <ng-template ngbPaginationEllipsis>...</ng-template>
+    <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
+
+  </ngb-pagination>
+
+  <div class="d-flex justify-content-start" style="float: left;">
+    <span class="text-gray" *ngIf="pagedPage?.maxCount > pagedPage?.pageSize">
+      <div [ngxSummernoteView]="'TextosAplicacion.NumeroPaginas' | translate:pagedPage"></div>
+      <div [ngxSummernoteView]="'TextosAplicacion.RegistrosMostrados' | translate:pagedPage"></div>
+    </span>
+
+    <div class="text-gray" *ngIf="pagedPage?.pageSize > pagedPage?.maxCount" [ngxSummernoteView]="'TextosAplicacion.TotalRegistros' | translate:pagedPage"></div>
+  </div>
+</div>

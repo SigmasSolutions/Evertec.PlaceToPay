@@ -1,0 +1,60 @@
+#{$pre}-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border: 2px solid $color-gray-lightest;
+  color: $color-gray-lighter;
+  background-color: transparent;
+  transition: 0.2s;
+  line-height: 1;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  span:first-child {
+    margin-right: 10px;
+  }
+  &.only-icon {
+    border-radius: 50%;
+    padding: 0 12px;
+    span {
+      margin: 0;
+    }
+  }
+}
+
+a#{$pre}-btn,
+button#{$pre}-btn,
+input#{$pre}-btn {
+  font-family: $font-bold;
+  padding: 0 20px;
+  text-decoration: none;
+}
+
+#{$pre}-btn--primary {
+  @include button-theme($color-primary, $color-primary, $color-white);
+}
+
+#{$pre}-btn--primary:hover {
+  @include button-theme($color-tertiary, $color-tertiary);
+}
+
+#{$pre}-btn--secondary {
+  @include button-theme($color-transparent, $color-secondary, $color-secondary);
+}
+
+#{$pre}-btn--secondary:hover {
+  @include button-theme($color-secondary, $color-secondary);
+}
+
+#{$pre}-btn_ico + #{$pre}-btn_label {
+  margin-left: 14px;
+}
+
+#{$pre}-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  @include prefix(box-shadow, $shadow-float);
+}

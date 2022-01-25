@@ -1,0 +1,8 @@
+<span [ngClass]="['cuore-btn_ico', icon]" *ngIf="icon.indexOf('icon-epm') >= 0"></span>
+
+<fa-icon *ngIf="icon && !contentText && icon.indexOf('icon-epm') < 0" [icon]="[iconLib, icon]" [spin]="spin" [pulse]="pulse" [rotate]="rotate" [size]="size"></fa-icon>
+
+<fa-layers [size]="size" *ngIf="icon && contentText && icon.indexOf('icon-epm') < 0">
+    <fa-icon [icon]="[iconLib, icon]" [spin]="spin" [pulse]="pulse" [rotate]="rotate"></fa-icon>
+    <fa-layers-counter [content]="contentText"></fa-layers-counter>
+</fa-layers>

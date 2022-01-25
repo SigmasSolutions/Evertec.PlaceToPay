@@ -1,0 +1,25 @@
+#{$pre}-list {
+  display: flex;
+  #{$pre}-list {
+    &_item {
+      display: flex;
+      margin-right: 25px;
+      font-size: 12px;
+      align-items: center;
+      font-family: $font;
+    }
+    &_icon {
+      color: $color-blue-darker;
+      margin-right: 10px;
+    }
+    &_text {
+      color: $color-gray;
+    }
+  }
+}
+
+#{$pre}-icon {
+  color: $color-blue-darker;
+  margin-right: 5px;
+  font-size: 12px;
+}

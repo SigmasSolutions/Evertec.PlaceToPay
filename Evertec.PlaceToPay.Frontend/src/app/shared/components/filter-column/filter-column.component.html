@@ -1,0 +1,31 @@
+<app-iconapp [icon]="'filter'" class="filterComponent" [ngClass]="{'openfilterComponent': popover.isOpen()}"
+#popover="ngbPopover" [ngbPopover]="popContent" [autoClose]="'outside'" [popoverTitle]="popTitle"></app-iconapp>
+
+<ng-template #popContent>
+  <form>
+    <div class="form-group">
+      <ng-select (change)="popUpChange()" class="notValid" [items]="[]" id="selectFiltro" name="selectFiltro"
+        [(ngModel)]="selectedFilter" [addTag]="true" [multiple]="true" [selectOnTab]="true" [isOpen]="false"
+        [placeholder]="'TextosAplicacion.AdicionarFiltro' | translate" *ngIf="typeFilter !== 'bool'">
+      </ng-select>
+
+      <div class="btn-group btn-group-toggle d-flex justify-content-center" ngbRadioGroup name="radioBasic"
+        *ngIf="typeFilter === 'bool'" [(ngModel)]="selectedFilter">
+        <label ngbButtonLabel class="btn-outline-secondary">
+          <input ngbButton type="radio" [value]="" (change)="popUpChange()">
+          <app-iconapp [icon]="'unlink'" class="text-default"></app-iconapp>
+        </label>
+        <label ngbButtonLabel class="btn-outline-success">
+          <input ngbButton type="radio" value="true" (change)="popUpChange()">
+          <app-iconapp [icon]="'check-circle'" class="text-check"></app-iconapp>
+        </label>
+        <label ngbButtonLabel class="btn-outline-danger">
+          <input ngbButton type="radio" [value]="false" (change)="popUpChange()">
+          <app-iconapp [icon]="'times-circle'" class="text-uncheck"></app-iconapp>
+        </label>
+      </div>
+    </div>
+  </form>
+</ng-template>
+<ng-template #popTitle><strong style="color: #000;">{{'TextosAplicacion.Filtrar' | translate}} {{titleName}}</strong>
+</ng-template>

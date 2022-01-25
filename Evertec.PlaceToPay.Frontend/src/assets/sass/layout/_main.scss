@@ -1,0 +1,117 @@
+#{$pre} {
+  background-color: $color-gray-lightest;
+  display: flex;
+  main.cuore-main {
+    display: flex;
+    width: calc(100% - 70px);
+    margin-left: $width-nav;
+    padding-left: 0;
+  }
+}
+
+#{$pre}-container-master_title {
+  @include setFlex(flex-start, center);
+  width: 100%;
+  & > span {
+    height: 100%;
+    display: flex;
+    font-size: 30px;
+    margin-right: 10px;
+    color: $color-blue-light-100;
+  }
+  #{$pre}-subtitle {
+    margin-bottom: 2px;
+  }
+}
+
+#{$pre}-main_section {
+  padding-top: 15px;
+}
+
+#{$pre}-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &_login {
+    display: flex;
+    width: 90%;
+    height: 90vh;
+    background-color: $color-white;
+    @include prefix(box-shadow, $shadow-login);
+    #{$pre}-container_image {
+      background: url("../img/img_login.svg");
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #e6f2ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #{$pre}-container_title {
+      border: 1px solid $color-black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 30px;
+      padding: 10px 30px 30px 30px;
+      & > span {
+        font-family: $font;
+        font-size: 32px;
+      }
+    }
+    #{$pre}-container_form {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+    #{$pre}-form_login {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      width: 100%;
+      padding: 40px 20%;
+      #{$pre}-link {
+        margin: 20px 0 30px 0;
+      }
+    }
+    #{$pre}-title {
+      justify-content: center;
+    }
+  }
+}
+
+@media (min-width: $min-width-md) and (max-width: $max-width-lg) {
+  #{$pre}-container_login {
+    width: 100%;
+    height: 100vh;
+  }
+  #{$pre}-container_image {
+    align-items: flex-start !important;
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: $max-width-sm) {
+  #{$pre}-container_image {
+    display: none !important;
+  }
+}
+
+#{$pre}-login_title {
+  @include setFlex(center, center);
+  margin-bottom: 10%;
+  img {
+    width: 60%;
+  }
+}
+
+@media (max-width: $max-width-sm) {
+  #{$pre} {
+    main#{$pre}-main {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}

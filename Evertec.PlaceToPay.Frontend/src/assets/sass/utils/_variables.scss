@@ -1,0 +1,97 @@
+$pre: ".cuore";
+$pre-icon: ".icon-cuore";
+
+/*   COLORS   */
+$color-primary: #2d62ed;
+$color-secondary: #2a2e43;
+$color-tertiary: #212158;
+$color-white: #fff;
+$color-disable: #d5d1d1;
+$color-red: #f04848;
+$color-green: #46c4aa;
+
+$color-blue-lightest: #eff2fb;
+$color-blue-lighter: #d8eeff;
+$color-blue-light: #a7bcf5;
+$color-blue-light-100: #50658e;
+$color-blue: #2299e2;
+$color-blue-100: #0176ff;
+$color-blue-200: #1d4fd2;
+$color-blue-dark: #254070;
+$color-blue-darker: #384d77;
+
+$color-yellow: #f0c348;
+$color-yellow-dark: #efd632;
+$color-orange-lightest: #f8fafc;
+$color-orange-dark: #bc5900;
+$color-gray-lightest: #f8fafc;
+$color-gray-lightest-200: #ccd1eb;
+$color-gray-lighter: #777575;
+$color-gray: #5b5b5b;
+$color-gray-dark: #253137;
+$color-gray-table: #5d6264;
+$color-gray-shadow: #d2d2d2;
+$color-gray-focus-table: #dbdbdb;
+$color-black: #222222;
+$color-transparent: transparent;
+
+$color-success: $color-green;
+$color-danger: $color-red;
+$color-warning: $color-yellow;
+
+$color-title: $color-secondary;
+$color-subtitle: $color-gray;
+
+/*   SHADOWS */
+$shadow-only-right: 10px 0px 24px -14px rgba(191, 185, 191, 1);
+$shadow-card: 0px 0px 20px -15px rgba(61, 61, 61, 1);
+$shadow-main-card: 0px 5px 15px 0px rgba(218, 224, 232, 1);
+$shadow-float: 0px 5px 15px 0px rgba(5, 63, 140, 0.5);
+$shadow-login: 0 0 4px rgba(170, 170, 170, 0.5);
+
+/*   FONTS   */
+$font-name: "Montserrat";
+$font-regular-name: "Montserrat-Regular";
+$font-medium-name: "Montserrat-Medium";
+$font-bold-name: "Montserrat-Bold";
+$font-semiBold-name: "Montserrat-SemiBold";
+$font2-name: "Sen";
+$font2-regular-name: "Sen-Regular";
+$font2-extraBold-name: "Sen-ExtraBold";
+
+$font: $font-name, Arial, Helvetica, sans-serif;
+$font-bold: $font-bold-name, Arial, Helvetica, sans-serif;
+$font-icon: "cuore-icons";
+
+$font-icon: "CUORE";
+
+$font-size-title: 28px;
+$font-size-subtitle: 22px;
+$font-size-subtitle2: 18px;
+$font-size-paragraph: 16px;
+$font-size-icon-medium: 1.2em;
+$font-size-icon-big: 1.6em;
+
+$list-title: (h1 h2 h3 h4 h5 h6);
+
+/*   MEDIA QUERY   */
+$min-width-xs: 300px;
+$max-width-xs: 575px;
+$min-width-sm: 576px;
+$max-width-sm: 767px;
+$min-width-md: 768px;
+$max-width-md: 991px;
+$min-width-lg: 992px;
+$max-width-lg: 1199px;
+$min-width-xl: 1200px;
+$max-width-xl: 1500px;
+
+$list-alerts: success, danger, warning;
+$type-alerts: (
+  success: $color-success,
+  danger: $color-danger,
+  warning: $color-warning,
+);
+
+/*   SIZE SCREEN   */
+$width-nav: 70px;

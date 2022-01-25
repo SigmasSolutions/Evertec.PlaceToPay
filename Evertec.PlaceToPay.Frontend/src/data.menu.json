@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1001,
+    "auxiliar": "cog",
+    "nombre": "Configuracion",
+    "url": "/administrativo",
+    "icono": true,
+    "idMenuPadre": null,
+    "orden": 2
+  },
+  {
+    "id": 1,
+    "auxiliar": "OR",
+    "nombre": "Order",
+    "url": "/order",
+    "icono": false,
+    "idMenuPadre": 1001,
+    "orden": 1
+  }
+]

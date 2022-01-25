@@ -1,0 +1,160 @@
+{
+  "Detalle": {
+    "Titulo": "Detalle"
+  },
+  "Order": {
+    "Titulo": "Órdenes",
+    "Labels": {
+      "OrderId": "Id orden",
+      "Reference": "Número de la orden",
+      "StatusId": "Estado de la orden",
+      "Description": "Descripción producto",
+      "CreatedAt": "Fecha de creación",
+      "Amount": "Monto orden"
+    },
+    "Placeholder": {
+      "Reference": "Ingrese el monto de la orden",
+      "Description": "Ingrese la descripción producto"
+    }
+  },
+  "User": {
+    "Titulo": "Usuario",
+    "Labels": {
+      "idUser": "Código usuario",
+      "image": "Imagen",
+      "identification": "Código identificación",
+      "fullName": "Nombre completo",
+      "email": "Email",
+      "password": "Contraseña",
+      "idProfile": "Perfil",
+      "idCompany": "Empresa",
+      "birthdayDate": "Fecha de cumpleaños",
+      "llastAdmissionDate": "Ultimo acceso",
+      "active": "Activo",
+      "locked": "Bloqueado"
+    },
+    "Placeholder": {
+      "idUser": "Ingrese el(la) idUser",
+      "image": "Ingrese el(la) image",
+      "identification": "Ingrese el(la) identification",
+      "fullName": "Ingrese el(la) fullName",
+      "email": "Ingrese el(la) email",
+      "password": "Ingrese el(la) password"
+    }
+  },
+  "TextosAplicacion": {
+    "PageTitle": "CUORE",
+    "Titulo": "CUORE",
+    "RegistrosMostrados": "Mostrados {{recordsFrom}} a {{recordsTo}} de <span class='badge badge-pill badge-primary'>{{maxCount}}</span> registros encontrados.",
+    "NumeroPaginas": "Página <strong>{{page}} / {{totalPages}}</strong>",
+    "TotalRegistros": "Total registros: <span class='badge badge-pill badge-primary'><b>{{maxCount}}</b></span>",
+    "Mostrar": "Mostrar:",
+    "Registros": "registros",
+    "Filtrar": "Buscar por:",
+    "AdicionarFiltro": "Adicionar filtros"
+  },
+  "undefined": {
+    "Titulo": "404"
+  },
+  "Menu": {
+    "Home": "DashBoard",
+    "Configuracion": "Configuraciones",
+    "Registro": "Registro de tanques"
+  },
+  "Generic": {
+    "Buttons": {
+      "Actualizar": "Actualizar",
+      "Aplicar": "Aplicar",
+      "Crear": "Crear",
+      "Cancelar": "Cancelar",
+      "Cerrar": "Cerrar",
+      "Eliminar": "Eliminar",
+      "Exportar": "Exportar",
+      "Ver": "Ver",
+      "Actuales": "Actuales",
+      "Anteriores": "Anteriores",
+      "Guardar": "Guardar",
+      "PaginaInicio": "Ir a la página de inicio",
+      "Ok": "Entendido!",
+      "Si": "Sí",
+      "No": "No",
+      "ActualizarDatos": "Actualizar datos",
+      "Aceptar": "Aceptar",
+      "NoActualizar": "No actualizar"
+    },
+    "Messages": {
+      "NoResults": "No se encontraron registros para mostrar.",
+      "TituloPageNoExite": "¡Uy! ¡Esta página no se pudo encontrar!",
+      "PageNoExite": "Lo sentimos, la página que está buscando no existe, se ha eliminado o se ha cambiado el nombre."
+    },
+    "Placeholder": {
+      "Buscar": "Buscar"
+    },
+    "ItemDefaultCombo": "Seleccionar un ítem",
+    "ItemDefaultSinDatos": "No hay ítems asociados",
+    "IrAlMenu": "Ir al menú",
+    "CerrarSesion": "Cerrar sesión"
+  },
+  "Messages": {
+    "Title": {
+      "GeneralConfirmUpdateApp": "Actualización de la aplicación disponible"
+    },
+    "error": {
+      "Title": {},
+      "ErrorGeneral": "Estamos Presentando dificultades tecnicas, por favor intenta nuevamente mas tarde.",
+      "ErrorNoControlado": "Actualmente se esta presentado un error general en la aplicación, por favor intenta nuevamente mas tarde, de persistir comunicarse con el administrador.",
+      "ErrNoEncontrado": "El registro {{param}} no se existe."
+    },
+    "success": {
+      "Title": {
+        "TitleMsjCreacion": "Creado",
+        "TitleMsjEliminacion": "Eliminado",
+        "TitleMsjActualizacion": "Actualizado"
+      },
+      "MsjActualizacion": "El registro fue actualizado exitosamente.",
+      "MsjCreacion": "El registro fue creado exitosamente.",
+      "MsjEliminacion": "El registro fue eliminado exitosamente.",
+      "MsjRecalcularAutonomia": "La tarea seleccionada fue forzada para iniciar en la próxima ejecución",
+      "UpdateTank": "{{param}}, acaba de recibir un nuevo valor para sus señales.",
+      "AlartTareaIniciada": "La tarea programada {{param}} inicio correctamente.",
+      "AlartTareaTerminada": "La tarea programada {{param}} término correctamente."
+    },
+    "info": {
+      "Title": {
+        "TitleMsjCreacion": "Creado",
+        "TitleMsjEliminacion": "Eliminado",
+        "TitleMsjActualizacion": "Actualizado"
+      },
+      "MsjActualizacion": "El registro fue actualizado exitosamente.",
+      "MsjCreacion": "El registro fue creado exitosamente.",
+      "MsjEliminacion": "El registro fue eliminado exitosamente.",
+      "MsjRecalcularAutonomia": "La tarea seleccionada fue forzada para iniciar en la próxima ejecución",
+      "AlartTareaIniciada": "La tarea programada {{param}} inicio correctamente.",
+      "AlartTareaTerminada": "La tarea programada {{param}} término correctamente.",
+      "ErrorGeneral": "Estamos Presentando dificultades tecnicas, por favor intenta nuevamente mas tarde.",
+      "ErrorNoControlado": "Actualmente se esta presentado un error general en la aplicación, por favor intenta nuevamente mas tarde, de persistir comunicarse con el administrador.",
+      "ErrNoEncontrado": "El registro {{param}} no se existe."
+    },
+    "warning": {
+      "Title": {},
+      "ErrNoEncontrado": "El registro no se existe.",
+      "ErrRegistrosDependientes": "El registro no se puede eliminar porque tiene dependencias.",
+      "ErrUniqueKey": "Esta intentando grabar valores duplicados en campos de valores únicos, por favor corrija el problema y vuelva a intentarlo.",
+      "ErrRequiredField": "Algunos datos no han sido ingresados y son necesarios para completar la operación, por favor corrija el problema y vuelva a intentarlo.",
+      "ErrForeingkey": "Algunos valores no existen en tablas relacionadas, por favor corrija el problema y vuelva a intentarlo.",
+      "ErrMaxLength": "Existen datos demasiado extensos, por favor corrija el problema y vuelva a intentarlo.",
+      "ErrMaxValue": "Algunos datos que han sido ingresados infringen restricciones de la base de datos, por favor corrija el problema y vuelva a intentarlo.",
+      "ExistField": "Algunos datos que han sido ingresados  ya se encuentran registrados por favor corrija el problema y vuelva a intentarlo.",
+      "ErrNoDataExport": "No hay datos para generar el archivo de excel con la información.",
+      "ErrNoColumnExport": "No hay columnas configuradas para generar el archivo de excel con la información."
+    },
+    "GeneralConfirm": "Actualmente tiene información {{param}} sin guardar, ¿desea salir de este formulario?",
+    "GeneralConfirmIngresada": "ingresada",
+    "GeneralConfirmEditada": "editada",
+    "ConfirmarEliminacion": "¿Esta seguro que desea eliminar este registro?",
+    "DefaultSelectDate": "Ingrese fecha",
+    "GeneralConfirmUpdateApp": "Elija Aceptar para actualizar"
+  },
+  "asc": "Ordenado Ascendente por el campo: {{active}}",
+  "desc": "Ordenado Descendente por el campo: {{active}}"
+}

@@ -1,0 +1,53 @@
+#{$pre}-card {
+  @include setFlex(flex-start, flex-start, column);
+  width: 100%;
+  border-radius: 6px;
+  margin: 10px 0;
+  @include prefix(box-shadow, $shadow-card);
+  border: 1px solid #b7c1db9e;
+  padding: 20px;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #6b82bd9e;
+  }
+  &_title {
+    @include setFlex(flex-start, center);
+    width: 100%;
+    span:first-child {
+      color: $color-blue-light;
+      font-size: 2em;
+    }
+  }
+  &_text {
+    font-family: $font2-regular-name;
+    line-height: 1em;
+    margin-left: 15px;
+    h3 {
+      font-size: 18px;
+      margin: 0;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+  #{$pre}-sensor {
+    #{$pre}-state {
+      @include setFlex(flex-start, flex-start, column);
+      margin-left: 5px;
+      li {
+        span:last-child {
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+}
+
+#{$pre}-mainCard {
+  @include prefix(box-shadow, $shadow-main-card);
+  @include setFlex(flex-start, flex-start, column);
+  border-radius: 20px;
+  width: 100%;
+  padding: 20px;
+  margin: 10px 0;
+}

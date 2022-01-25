@@ -1,0 +1,13 @@
+.filterComponent{
+    position: relative;
+    float: right;
+    margin-top: -23px;
+    margin-right: -16px;
+    opacity: 0.1;
+}
+
+.openfilterComponent { opacity: 1 !important; }
+
+.filterComponent:hover{
+    opacity: 1;
+}

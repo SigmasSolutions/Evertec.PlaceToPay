@@ -1,0 +1,20 @@
+<div class="row" *ngIf="objMensaje">
+    <div class="col-md-12">
+        <div class="alert" role="alert" [ngClass]="{'alert-success': objMensaje.categoria == 200, 
+                        'alert-danger': objMensaje.categoria == 500,
+                        'alert-warning': objMensaje.categoria == 100,
+                        'alert-primary': objMensaje.categoria == 300,
+                        'alert-secondary': objMensaje.categoria == 0,
+                        'alert-info': objMensaje.categoria == 1,
+                        'alert-light': objMensaje.categoria == 2,
+                        'alert-dark': objMensaje.categoria == 3}">
+
+            <app-iconapp *ngIf="objMensaje.icono && objMensaje.icono != ''" [icon]="objMensaje.icono"></app-iconapp>
+            <strong *ngIf="objMensaje.titulo && objMensaje.titulo != ''"> {{objMensaje.titulo}}</strong>
+            {{objMensaje.mensaje}}
+            <button type="button" class="close" (click)="objMensaje = null;">
+                <app-iconapp [icon]="'times-circle'"></app-iconapp>
+            </button>
+        </div>
+    </div>
+</div>

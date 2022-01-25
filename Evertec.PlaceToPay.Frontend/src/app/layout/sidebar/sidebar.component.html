@@ -1,0 +1,35 @@
+<nav id="cuoreToggle" class="cuore-navbar">
+  <span class="fas fa-bars"></span>
+  <ul>
+    <li
+      class="cuore-navbar_item"
+      *ngFor="
+        let menu of Menu
+          | filterBy: 'idMenuPadre':'null'
+          | sortBy: 'asc':'Orden'
+      "
+    >
+      <a
+        [href]="'#nav' + menu?.id"
+        aria-expanded="false"
+        [attr.aria-controls]="'#nav' + menu?.id"
+        [routerLink]="menu?.url"
+        routerLinkActive="cuore-item--active"
+        [routerLinkActiveOptions]="{ exact: menu?.url === '/' }"
+        [ngbTooltip]="'Menu.' + menu.nombre | translate"
+      >
+        <app-iconapp
+          [icon]="menu.auxiliar"
+          class="cuore-navbar_icon"
+        ></app-iconapp>
+      </a>
+    </li>
+  </ul>
+  <div class="cuore-avatar">
+    <img
+      class="avatar-img"
+      src="assets/img/avatar.png"
+      alt="Image Description"
+    />
+  </div>
+</nav>

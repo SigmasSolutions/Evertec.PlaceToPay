@@ -1,0 +1,37 @@
+<div class="input-group flex-nowrap">
+  <input class="form-control  not-rounded-right" (blur)="inputBlur()" [ngModel]="dateString | date:inputDatetimeFormat" disabled placeholder="{{ textPlaceHolder | translate }}"/>
+
+  <div class="input-group-prepend">
+    <button (click)="deleteValue()" class="btn btn-outline-secondary" type="button">
+      <app-iconapp [icon]="'times-circle'"></app-iconapp>
+    </button>
+    <button class="btn btn-outline-secondary rounded-right" [ngbPopover]="calendarContent" type="button">
+      <app-iconapp [icon]="'calendar'"></app-iconapp>
+    </button>
+  </div>
+</div>
+
+<ng-template #calendarContent>
+  <div>
+    <div *ngIf="!showTimePickerToggle">
+      <ngb-datepicker #dp name="datepicker" [minDate]="getDate(minDate)" [maxDate]="getDate(maxDate)"
+        [ngModel]="datetime" (ngModelChange)="onDateChange($event)" class="ngb-datepicker"></ngb-datepicker>
+      <button class="btn btn-block btn-outline-secondary" *ngIf="!onlyDate" [disabled]="!datetime?.day" type="button"
+        (click)="toggleDateTimeState($event)">
+        <app-iconapp [icon]="'clock'"></app-iconapp>
+      </button>
+    </div>
+    <div *ngIf="showTimePickerToggle">
+      <button class="btn btn-block btn-outline-secondary" [ngbPopover]="calendarContent" type="button"
+        (click)="toggleDateTimeState($event)">
+        <app-iconapp [icon]="'calendar-day'"></app-iconapp>
+      </button>
+      <div class="mt-auto">
+        <ngb-timepicker name="timepicker" [ngModel]="datetime" (ngModelChange)="onTimeChange($event)"
+          [meridian]="meridian" [seconds]="seconds" [hourStep]="hourStep" [minuteStep]="minuteStep"
+          [secondStep]="secondStep">
+        </ngb-timepicker>
+      </div>
+    </div>
+  </div>
+</ng-template>

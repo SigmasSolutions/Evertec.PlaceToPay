@@ -1,0 +1,23 @@
+<div class="epm-table_icons">
+  <a
+    (click)="btnVerClick($event)"
+    [ngbTooltip]="'Generic.Buttons.Ver' | translate"
+    *ngIf="ActiveView"
+  >
+    <app-iconapp [icon]="iconView" class="cuore-btn_ico"></app-iconapp>
+  </a>
+  <a
+    (click)="btnUpdateClick($event)"
+    [ngbTooltip]="'Generic.Buttons.Actualizar' | translate"
+    *ngIf="ActiveUpdate"
+  >
+    <app-iconapp [icon]="iconUpdate" class="cuore-btn_ico"></app-iconapp>
+  </a>
+  <a
+    (click)="btnEliminarClick($event)"
+    [ngbTooltip]="'Generic.Buttons.Eliminar' | translate"
+    *ngIf="ActiveDelete"
+  >
+    <app-iconapp [icon]="iconDelete" class="cuore-btn_ico"></app-iconapp>
+  </a>
+</div>

@@ -43,7 +43,7 @@ namespace Evertec.PlaceToPay.Domain.Services
                 }
                 else
                 {
-                    object token = _service.GetNewToken(user.Name);
+                    object token = await _service.GetNewToken(user);
                     result.Success = true;
                     result.Result = token;
                 }

@@ -1,0 +1,55 @@
+#{$pre}-title {
+  @include text-type($font-bold, $font-size-title, $color-secondary);
+  display: inline-block;
+  margin: 10px 0;
+  line-height: 1em;
+  position: relative;
+  margin-bottom: 24px;
+  &::after {
+    content: "";
+    width: 100px;
+    height: 6px;
+    border-radius: 10px;
+    background-color: $color-primary;
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+  }
+}
+
+#{$pre}-subtitle {
+  @include text-type($font-bold, $font-size-subtitle, $color-secondary);
+}
+
+#{$pre}-subtitle2 {
+  @include text-type($font-semiBold-name, $font-size-subtitle2, $color-gray);
+  margin: 10px 0;
+}
+
+#{$pre}-subtitle3 {
+  @include text-type($font-regular-name, $font-size-subtitle, $color-secondary);
+  margin: 5px 0;
+}
+
+#{$pre}-content_subtitle {
+  @include setFlex(space-between, center);
+  width: 100%;
+  span {
+    border-radius: 50%;
+    border: 1px solid $color-gray-lighter;
+    padding: 8px;
+    box-sizing: content-box;
+    color: $color-gray-dark;
+  }
+}
+
+#{$pre}-link {
+  color: $color-secondary;
+  text-decoration: underline;
+  font-family: $font2-regular-name;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-tertiary;
+  }
+}

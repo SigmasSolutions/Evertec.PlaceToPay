@@ -1,0 +1,27 @@
+<div
+  class="form-row align-items-center"
+  *ngIf="pagedPage?.maxCount > numberRecords || countRecord > 0"
+>
+  <div class="col-auto my-1 epm-text">
+    {{ "TextosAplicacion.Mostrar" | translate }}
+  </div>
+  <div class="col-auto my-1">
+    <div class="epm-form-group epm-select" style="margin: initial">
+      <select
+        class="form-control notValid"
+        [(ngModel)]="numberRecords"
+        (change)="handleChange()"
+        id="selectNumberRecords"
+        name="selectNumberRecords"
+      >
+        <option *ngFor="let item of listNumberRecords" [ngValue]="item">
+          {{ item }}
+        </option>
+      </select>
+      <span class="icon-epm-angle-down"></span>
+    </div>
+  </div>
+  <div class="col-auto my-1 epm-text">
+    {{ "TextosAplicacion.Registros" | translate }}
+  </div>
+</div>

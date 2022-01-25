@@ -1,7 +1,10 @@
-﻿namespace Evertec.PlaceToPay.Domain.Services.Interfaces
+﻿using Evertec.PlaceToPay.Domain.Entities;
+using System.Threading.Tasks;
+
+namespace Evertec.PlaceToPay.Domain.Services.Interfaces
 {
     public interface IAuthenticationDomainService
     {
-        string GetNewToken(string user);
+        Task<string> GetNewToken(Users user);
     }
 }

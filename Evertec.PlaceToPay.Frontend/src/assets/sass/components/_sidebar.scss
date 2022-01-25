@@ -1,0 +1,62 @@
+#{$pre}-sidebar {
+  width: 300px;
+  height: 100vh;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative;
+  @include setFlex(flex-start, start, column);
+  @include prefix(box-shadow, $shadow-only-right);
+  background-color: $color-white;
+  overflow-y: auto;
+  animation-name: slideInFromLeft;
+  animation-duration: 0.1s;
+  animation-direction: normal;
+  animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
+  &#{$pre}--closed {
+    width: 30px;
+    padding-right: 28px;
+    box-sizing: border-box;
+    #{$pre}-sidebar_content {
+      opacity: 0;
+      overflow-y: hidden;
+    }
+    #{$pre}-sidebar_collapse {
+      span {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+  section {
+    @include setFlex(flex-start, flex-start, column);
+    width: 100%;
+  }
+}
+
+#{$pre}-sidebar_collapse {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  background-color: $color-white;
+  color: $color-blue-light-100;
+  border-radius: 50%;
+  padding: 0 7px;
+  border: 1px solid $color-blue-light;
+  cursor: pointer;
+  z-index: 99999999;
+  span {
+    pointer-events: none;
+    cursor: pointer;
+  }
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    border: 0;
+  }
+}
+
+#{$pre}-sidebar_content {
+  opacity: 1;
+  section:last-of-type {
+    margin-top: auto;
+  }
+}

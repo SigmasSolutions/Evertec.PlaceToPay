@@ -1,0 +1,19 @@
+<div class="epm-pre-table" *ngIf="pagedPage?.maxCount > 0">
+  <div class="epm-table_info">
+    <app-number-records
+      (eventChangeNumber)="(eventChangeNumber)"
+      [pagedPage]="pagedPage"
+      [countRecord]="countRecord"
+    ></app-number-records>
+  </div>
+  <div class="epm-table_actions">
+    <a class="epm-link" (click)="onExportClick()" *ngIf="false">
+      <app-iconapp [icon]="'file-excel'"></app-iconapp>
+      {{ "Generic.Buttons.Exportar" | translate }}
+    </a>
+    <a class="epm-link" (click)="onUpdateDataClick()">
+      <app-iconapp [icon]="'sync-alt'"></app-iconapp>
+      {{ "Generic.Buttons.ActualizarDatos" | translate }}
+    </a>
+  </div>
+</div>

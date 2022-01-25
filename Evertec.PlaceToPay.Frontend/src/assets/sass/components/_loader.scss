@@ -1,0 +1,15 @@
+.cuore-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 99999999999999;
+  overflow-y: hidden;
+  &.cuore-hidden {
+    display: none;
+  }
+}

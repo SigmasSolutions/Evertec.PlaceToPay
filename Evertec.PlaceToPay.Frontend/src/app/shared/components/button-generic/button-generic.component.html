@@ -1,0 +1,23 @@
+<div class="container-button">
+    <button type="button" class="cuore-btn cuore-btn--secondary col-xs col-sm col-md-3 mb-1"
+        (click)="onCancelClick($event)">
+        <app-iconapp [icon]="iconCancel" class="cuore-btn_ico"></app-iconapp>
+        <span class="cuore-btn_label">{{'Generic.Buttons.Cancelar' | translate}}</span>
+    </button>
+    <button *ngIf="ActiveDelete && (isViewUpdate || isViewData)" type="button"
+        class="cuore-btn cuore-btn--transactional col-xs col-sm col-md-3 mb-1" (click)="onDeleteClick($event)">
+        <app-iconapp [icon]="iconDelete" class="cuore-btn_ico"></app-iconapp>
+        <span class="cuore-btn_label">{{'Generic.Buttons.Eliminar' | translate}}</span>
+    </button>
+    <button *ngIf="!isViewUpdate && !isViewData" type="submit"
+        class="cuore-btn cuore-btn--primary col-xs col-sm col-md-3 mb-1" (click)="onCreateClick($event)"
+        [disabled]="disabled">
+        <app-iconapp [icon]="iconCreate" class="cuore-btn_ico"></app-iconapp>
+        <span class="cuore-btn_label">{{'Generic.Buttons.Crear' | translate}}</span>
+    </button>
+    <button *ngIf="ActiveUpdate && (isViewUpdate && !isViewData)" type="button" class="cuore-btn cuore-btn--primary col-xs col-sm col-md-3 mb-1"
+        (click)="onUpdateClick($event)" [disabled]="disabled">
+        <app-iconapp [icon]="iconUpdate" class="cuore-btn_ico"></app-iconapp>
+        <span class="cuore-btn_label">{{'Generic.Buttons.Guardar' | translate}}</span>
+    </button>
+</div>

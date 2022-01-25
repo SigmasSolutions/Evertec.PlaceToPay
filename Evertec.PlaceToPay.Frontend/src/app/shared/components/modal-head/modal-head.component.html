@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h3>
+    <app-iconapp
+      [icon]="isViewData ? iconView : isViewUpdate ? iconUpdate : iconCreate"
+    ></app-iconapp>
+    {{
+      isViewData
+        ? ("Generic.Buttons.Ver" | translate)
+        : isViewUpdate
+        ? ("Generic.Buttons.Actualizar" | translate)
+        : ("Generic.Buttons.Crear" | translate)
+    }}
+    {{ titleName }}
+  </h3>
+
+  <div class="epm-close-icon" data-dismiss="modal">
+    <app-iconapp
+      [icon]="'times'"
+      (click)="eventClose($event)"
+      title="Cerrar"
+    ></app-iconapp>
+  </div>
+</div>

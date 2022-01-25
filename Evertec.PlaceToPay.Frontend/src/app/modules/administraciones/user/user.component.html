@@ -1,0 +1,176 @@
+<section class="container cuore-main_section">
+  <app-title-head
+    [buttonName]="'Generic.Buttons.Crear' | translate"
+    [titleName]="'User.Titulo' | translate"
+    (event)="openModal()"
+  >
+  </app-title-head>
+
+  <app-pre-table
+    (eventChangeNumber)="numberRecordsData($event)"
+    [pagedPage]="listUser?.paged"
+    (eventExport)="exportData()"
+    (eventUpdateData)="updateData()"
+  ></app-pre-table>
+  <div class="table-responsive" *ngIf="listUser?.list?.length > 0 || filters">
+    <table
+      [ngClass]="defaultStyleTable"
+      matSort
+      (matSortChange)="sortData($event)"
+    >
+      <caption>
+        Tabla de registros paginados de la entidad
+        {{
+          "User.Titulo" | translate
+        }}.
+      </caption>
+      <thead class="text-nowrap">
+        <tr>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'IdUser'"
+              [typeFilter]="'int'"
+              [titleName]="'User.Labels.idUser' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Image'"
+              [typeFilter]="'string'"
+              [titleName]="'User.Labels.image' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Identification'"
+              [typeFilter]="'string'"
+              [titleName]="'User.Labels.identification' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'FullName'"
+              [typeFilter]="'string'"
+              [titleName]="'User.Labels.fullName' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Email'"
+              [typeFilter]="'string'"
+              [titleName]="'User.Labels.email' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Password'"
+              [typeFilter]="'string'"
+              [titleName]="'User.Labels.password' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'IdProfileNavigation.Name'"
+              [typeFilter]="'string'"
+              [titleName]="'User.Labels.idProfile' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'IdCompanyNavigation.Name'"
+              [typeFilter]="'string'"
+              [titleName]="'User.Labels.idCompany' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'BirthdayDate'"
+              [typeFilter]="'datetime'"
+              [titleName]="'User.Labels.birthdayDate' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'LlastAdmissionDate'"
+              [typeFilter]="'datetime'"
+              [titleName]="'User.Labels.llastAdmissionDate' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Active'"
+              [typeFilter]="'bool'"
+              [titleName]="'User.Labels.active' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'Locked'"
+              [typeFilter]="'bool'"
+              [titleName]="'User.Labels.locked' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Item of listUser?.list" (dblclick)="openModal(Item)">
+          <th scope="row">{{ Item.idUser }}</th>
+          <td>{{ Item.image }}</td>
+          <td>{{ Item.identification }}</td>
+          <td>{{ Item.fullName }}</td>
+          <td>{{ Item.email }}</td>
+          <td>{{ Item.password }}</td>
+          <td>{{ Item.profile_Name }}</td>
+          <td>{{ Item.company_Name }}</td>
+          <td>{{ Item.birthdayDate | date: inputDateFormat }}</td>
+          <td>{{ Item.llastAdmissionDate | date: inputDatetimeFormat }}</td>
+          <td><app-icon [showIcon]="Item.active"></app-icon></td>
+          <td><app-icon [showIcon]="Item.locked"></app-icon></td>
+
+          <td class="d-flex flex-column">
+            <app-table-btn
+              (updateClick)="openModal(Item)"
+              (varClick)="openModal(Item, true)"
+              (eliminarClick)="onDelete(Item)"
+            >
+            </app-table-btn>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-no-results [showError]="listUser?.list?.length === 0"></app-no-results>
+  <app-paginator
+    [pagedPage]="listUser?.paged"
+    (event)="pageData($event)"
+    [page]="page"
+  >
+  </app-paginator>
+</section>

@@ -1,0 +1,15 @@
+[class^="icon-cuore-"],
+[class*=" icon-cuore-"] {
+  font-family: $font-icon;
+  font-size: 1.5em;
+}
+
+#{$pre-icon}-interconection:before {
+  content: "\e001";
+}
+#{$pre-icon}-tank:before {
+  content: "\e002";
+}
+#{$pre-icon}-deposits:before {
+  content: "\e003";
+}

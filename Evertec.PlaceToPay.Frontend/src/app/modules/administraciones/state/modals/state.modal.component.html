@@ -1,0 +1,48 @@
+<app-modal-head [isViewUpdate]="isUpdate" [isViewData]="isView" [titleName]="'State.Titulo' | translate"
+(eventCloseModal)="closeModal($event)"></app-modal-head>
+
+<div class="modal-body">
+   <form novalidate #stateForm="ngForm">
+      <div class="form-group row">
+         <label class="col-sm-3 col-form-label" for="txticon">{{'State.Labels.icon' | translate}}</label>
+         <div class="col-sm-9">
+            <strong *ngIf="isView">{{ objEntidad.icon }}</strong>
+            <input appNumbersLettersOnly *ngIf="!isView" type="text" [(ngModel)]="objEntidad.icon" name="txticon" maxlength ="50" class="form-control" id="txticon" placeholder="{{'State.Placeholder.icon' | translate}}"  required/>
+         </div>
+      </div>
+      <div class="form-group row">
+         <label class="col-sm-3 col-form-label" for="txtname">{{'State.Labels.name' | translate}}</label>
+         <div class="col-sm-9">
+            <strong *ngIf="isView">{{ objEntidad.name }}</strong>
+            <input appNumbersLettersOnly *ngIf="!isView" type="text" [(ngModel)]="objEntidad.name" name="txtname" maxlength ="50" class="form-control" id="txtname" placeholder="{{'State.Placeholder.name' | translate}}"  required/>
+         </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="txtdescription">{{'Parameter.Labels.description' | translate}}</label>
+        <div class="col-sm-9">
+           <strong *ngIf="isView">{{ objEntidad.description }}</strong>
+           <textarea appNumbersLettersOnly *ngIf="!isView" rows="5" [(ngModel)]="objEntidad.description" name="txardescription" class="form-control" id="txardescription" placeholder="{{'Parameter.Placeholder.description' | translate}}" required></textarea>
+        </div>
+     </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="txtcolor">{{'LightsSignal.Labels.color' | translate}}</label>
+        <div class="col-sm-9">
+           <strong *ngIf="isView">{{ objEntidad.color }}</strong>
+           <input appNumbersLettersOnly *ngIf="!isView" type="color" [(ngModel)]="objEntidad.color" name="txtcolor" maxlength ="10" class="form-control" id="txtcolor" placeholder="{{'LightsSignal.Placeholder.color' | translate}}"  required/>
+        </div>
+     </div>
+      <div class="form-group row">
+         <label class="col-sm-3 col-form-label" for="chkactive">{{'State.Labels.active' | translate}}</label>
+         <div class="col-sm-9">
+            <app-icon *ngIf="isView" [showIcon]="objEntidad.active"></app-icon>
+            <div class="form-check material-switch" *ngIf="!isView">
+               <input type="checkbox" [(ngModel)]="objEntidad.active" name="chkactive" class="form-control" id="chkactive">
+               <label for="chkactive" class="badge-success"></label>
+            </div>
+         </div>
+      </div>
+   </form>
+</div>
+
+<app-modal-footer [isViewUpdate]="isUpdate" [isViewData]="isView" [disabled]="stateForm.invalid"
+(cancelClick)="closeModal()" (createClick)="onCreate()" (updateClick)="onUpdate()" (deleteClick)="onDelete()"></app-modal-footer>

@@ -1,0 +1,220 @@
+<app-modal-head
+  [isViewUpdate]="isUpdate"
+  [isViewData]="isView"
+  [titleName]="'User.Titulo' | translate"
+  (eventCloseModal)="closeModal($event)"
+></app-modal-head>
+
+<div class="modal-body">
+  <form novalidate #userForm="ngForm">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="txtimage">{{
+        "User.Labels.image" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <strong *ngIf="isView">{{ objEntidad.image }}</strong>
+        <textarea
+          appNumbersLettersOnly
+          *ngIf="!isView"
+          rows="5"
+          [(ngModel)]="objEntidad.image"
+          name="txarimage"
+          class="form-control"
+          id="txarimage"
+          placeholder="{{ 'User.Placeholder.image' | translate }}"
+          required
+        ></textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="txtidentification">{{
+        "User.Labels.identification" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <strong *ngIf="isView">{{ objEntidad.identification }}</strong>
+        <input
+          appNumbersLettersOnly
+          *ngIf="!isView"
+          type="text"
+          [(ngModel)]="objEntidad.identification"
+          name="txtidentification"
+          maxlength="15"
+          class="form-control"
+          id="txtidentification"
+          placeholder="{{ 'User.Placeholder.identification' | translate }}"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="txtfullName">{{
+        "User.Labels.fullName" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <strong *ngIf="isView">{{ objEntidad.fullName }}</strong>
+        <input
+          appNumbersLettersOnly
+          *ngIf="!isView"
+          type="text"
+          [(ngModel)]="objEntidad.fullName"
+          name="txtfullName"
+          maxlength="150"
+          class="form-control"
+          id="txtfullName"
+          placeholder="{{ 'User.Placeholder.fullName' | translate }}"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="txtemail">{{
+        "User.Labels.email" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <strong *ngIf="isView">{{ objEntidad.email }}</strong>
+        <textarea
+          *ngIf="!isView"
+          rows="5"
+          [(ngModel)]="objEntidad.email"
+          name="txaremail"
+          class="form-control"
+          id="txaremail"
+          placeholder="{{ 'User.Placeholder.email' | translate }}"
+          required
+        ></textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="txtpassword">{{
+        "User.Labels.password" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <strong *ngIf="isView">{{ objEntidad.password }}</strong>
+        <input
+          appNumbersLettersOnly
+          *ngIf="!isView"
+          type="text"
+          [(ngModel)]="objEntidad.password"
+          name="txtpassword"
+          maxlength="50"
+          class="form-control"
+          id="txtpassword"
+          placeholder="{{ 'User.Placeholder.password' | translate }}"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="cbxidProfile">{{
+        "User.Labels.idProfile" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <strong *ngIf="isView">{{ objEntidad.profile_Name }}</strong>
+        <ng-select
+          *ngIf="!isView"
+          [(ngModel)]="objEntidad.idProfile"
+          name="cbxidProfile"
+          id="cbxidProfile"
+          required
+          [items]="lstProfile"
+          [loading]="lstProfile == undefined"
+          bindValue="idProfile"
+          bindLabel="name"
+        >
+        </ng-select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="cbxidCompany">{{
+        "User.Labels.idCompany" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <strong *ngIf="isView">{{ objEntidad.company_Name }}</strong>
+        <ng-select
+          *ngIf="!isView"
+          [(ngModel)]="objEntidad.idCompany"
+          name="cbxidCompany"
+          id="cbxidCompany"
+          [items]="lstCompany"
+          [loading]="lstCompany == undefined"
+          bindValue="idCompany"
+          bindLabel="name"
+        >
+        </ng-select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="chkbirthdayDate">{{
+        "User.Labels.birthdayDate" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <strong *ngIf="isView">{{
+          objEntidad.birthdayDate | date: inputDateFormat
+        }}</strong>
+        <app-date-time-picker
+          *ngIf="!isView"
+          [(ngModel)]="objEntidad.birthdayDate"
+          [onlyDate]="true"
+          name="dtpbirthdayDate"
+          id="dtpbirthdayDate"
+        ></app-date-time-picker>
+      </div>
+    </div>
+    <div class="form-group row" *ngIf="isView">
+      <label class="col-sm-3 col-form-label" for="chkllastAdmissionDate">{{
+        "User.Labels.llastAdmissionDate" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <strong>{{
+          objEntidad.llastAdmissionDate | date: inputDatetimeFormat
+        }}</strong>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="chkactive">{{
+        "User.Labels.active" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <app-icon *ngIf="isView" [showIcon]="objEntidad.active"></app-icon>
+        <div class="form-check material-switch" *ngIf="!isView">
+          <input
+            type="checkbox"
+            [(ngModel)]="objEntidad.active"
+            name="chkactive"
+            class="form-control"
+            id="chkactive"
+          />
+          <label for="chkactive" class="badge-success"></label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="chklocked">{{
+        "User.Labels.locked" | translate
+      }}</label>
+      <div class="col-sm-9">
+        <app-icon *ngIf="isView" [showIcon]="objEntidad.locked"></app-icon>
+        <div class="form-check material-switch" *ngIf="!isView">
+          <input
+            type="checkbox"
+            [(ngModel)]="objEntidad.locked"
+            name="chklocked"
+            class="form-control"
+            id="chklocked"
+          />
+          <label for="chklocked" class="badge-success"></label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<app-modal-footer
+  [isViewUpdate]="isUpdate"
+  [isViewData]="isView"
+  [disabled]="userForm.invalid"
+  (cancelClick)="closeModal()"
+  (createClick)="onCreate()"
+  (updateClick)="onUpdate()"
+  (deleteClick)="onDelete()"
+></app-modal-footer>

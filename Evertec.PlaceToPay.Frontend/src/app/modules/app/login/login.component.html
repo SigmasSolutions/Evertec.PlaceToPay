@@ -1,0 +1,41 @@
+<div class="cuore_main container-fluid cuore-container no-gutters" style="padding-top: 20px;">
+  <div class="cuore-container_login row">
+    <div class="cuore-container_form col-md-6 col-sm-12">
+      <div class="cuore-form_login">
+        <div class="cuore-login_title">
+          <img src="assets/img/logo.svg" alt="" />
+        </div>
+        <form cuore-form-column>
+          <div class="form-group">
+            <label for="example">Ingresar usuario</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Ingresar usuario aquí"
+              [(ngModel)]="login.username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="example">Ingresar Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Ingresar contraseña aquí"
+              [(ngModel)]="login.password"
+              required
+            />
+          </div>
+          <button class="cuore-btn cuore-btn--primary col" (click)="inicarSession()">
+            <span class="cuore-btn_label">Ingresar</span>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="cuore-container_image col-6"></div>
+  </div>
+</div>

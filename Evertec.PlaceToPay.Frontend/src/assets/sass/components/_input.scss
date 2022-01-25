@@ -1,0 +1,46 @@
+.form-control {
+  border: 1px solid #112a44;
+  border-radius: 10px;
+  height: 40px;
+  &:focus {
+    border-color: #112a44;
+    box-shadow: 0 0 0 0.2rem rgba(22, 98, 181, 0.17);
+  }
+}
+
+.form-group {
+  label {
+    color: $color-secondary;
+    font-family: $font2-regular-name;
+  }
+}
+form {
+  #{$pre}-icon {
+    position: relative;
+    .form-control {
+      height: 40px !important;
+    }
+    span {
+      color: $color-secondary;
+      font-size: 1.2em;
+      position: absolute;
+      top: 44%;
+      right: 6%;
+      display: inline-block;
+      @include prefix(transform, (translateY(45%)));
+      text-align: center;
+      pointer-events: none;
+      z-index: 2;
+    }
+  }
+}
+
+form#{$pre}-form-row {
+  display: flex;
+  width: 100%;
+}
+form#{$pre}-form-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

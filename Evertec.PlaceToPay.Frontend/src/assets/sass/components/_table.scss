@@ -1,0 +1,115 @@
+#{$pre}-table {
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  font-family: $font;
+  margin: 20px 0 5px 0;
+
+  thead {
+    color: $color-white;
+    font-size: 14px;
+    font-style: normal;
+
+    tr {
+      background-color: $color-blue-dark;
+      padding: 10px 0;
+      line-height: 1.4em;
+      @include prefix(box-shadow, (0 3px 4px 0 rgba(222, 212, 175, 0.16)));
+    }
+  }
+  tbody {
+    tr {
+      padding: 10px 0;
+      color: $color-blue-light-100;
+      font-size: 14px;
+      background-color: $color-white;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        background-color: #f3f3f3;
+        top: 0;
+        left: 0;
+        z-index: 9;
+      }
+
+      &:hover {
+        background-color: $color-gray-lightest;
+      }
+
+      td {
+        a {
+          text-decoration: none;
+          padding: 0 2px;
+          &:hover {
+            #{$pre}-btn_ico {
+              color: $color-tertiary;
+            }
+          }
+
+          span#{$pre}-btn_ico {
+            color: $color-gray-lighter;
+            font-size: 16px;
+          }
+        }
+        a:last-child {
+          span {
+            color: $color-red;
+          }
+        }
+      }
+    }
+  }
+  tr {
+    display: table-row;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: $max-width-lg) {
+  #{$pre}-table {
+    display: block;
+  }
+  #{$pre}-link--control span:not(#{$pre}-btn_ico) {
+    display: none;
+  }
+}
+
+@media (min-width: $min-width-xs) and (max-width: $max-width-sm) {
+  #{$pre}-pre-table #{$pre}-link {
+    text-decoration: none;
+    padding: 6px 13px;
+    span:last-child {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: $min-width-xs) and (max-width: $max-width-xs) {
+  #{$pre}-table_pagination #{$pre}-table_pages #{$pre}-link {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+  }
+  #{$pre}-container-fluid#{$pre}-table_pagination {
+    padding: 0;
+  }
+  #{$pre}-pre-table {
+    display: flex;
+    flex-direction: column;
+  }
+}

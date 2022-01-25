@@ -1,0 +1,33 @@
+<div class="row mx-0 d-flex justify-content-between">
+  <div class="col-xs-12 col-sm-12 col-md-7 py-2 mb-0 px-0">
+    <section>
+      <h1 *ngIf="titleName" class="cuore-title">
+        <app-iconapp
+          [icon]="iconTitleHead"
+          class="iconhead"
+          *ngIf="false"
+        ></app-iconapp>
+        {{ titleName }}
+      </h1>
+      <div *ngIf="subTitleName" class="cuore-content_subtitle">
+        <h3 class="cuore-subtitle2">{{ subTitleName }}</h3>
+      </div>
+    </section>
+  </div>
+
+  <button
+    *ngIf="buttonName"
+    [disabled]="disabled"
+    type="button"
+    class="cuore-btn only-icon cuore-btn--primary"
+    [ngClass]="{ 'cuore-float': isFloat }"
+    (click)="handleClick($event)"
+    style="height: 45px"
+  >
+    <app-iconapp
+      [icon]="iconCreate"
+      class="cuore-btn_ico"
+      [title]="buttonName"
+    ></app-iconapp>
+  </button>
+</div>

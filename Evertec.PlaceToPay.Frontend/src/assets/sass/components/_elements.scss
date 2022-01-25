@@ -1,0 +1,42 @@
+#{$pre}-elements {
+  @include setFlex(space-between, flex-start, column);
+  width: 100%;
+}
+
+#{$pre}-element {
+  @include setFlex(space-between, center);
+  width: 100%;
+  border: 1px solid $color-gray-lightest-200;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: $font2-regular-name;
+  padding: 5px;
+  margin: 5px 0;
+  color: $color-secondary;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid $color-blue;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    & span:first-child {
+      color: $color-blue;
+      margin-right: 10px;
+    }
+  }
+  &_selected {
+    display: none;
+    background-color: $color-blue-100;
+    color: $color-white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 0.8em;
+  }
+  &#{$pre}-element--active {
+    background-color: $color-blue-lighter;
+    #{$pre}-element_selected {
+      @include setFlex(center, center);
+    }
+  }
+}

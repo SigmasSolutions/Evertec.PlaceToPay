@@ -1,0 +1,13 @@
+<div [ngClass]="{ cuore: isAuth }">
+  <app-sidebar *ngIf="isAuth"></app-sidebar>
+
+  <main
+    [ngClass]="{
+      'cuore-main container-fluid': isAuth
+    }"
+  >
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<app-loading></app-loading>

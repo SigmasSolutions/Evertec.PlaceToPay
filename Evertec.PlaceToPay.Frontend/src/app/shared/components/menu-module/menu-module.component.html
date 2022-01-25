@@ -1,0 +1,34 @@
+<div *ngFor="let menu of Menu | sortBy: 'asc' : 'orden'">
+  <div class="container">
+      <div class="text-center titleView">
+          <app-iconapp [icon]="menu?.auxiliar" *ngIf="menu?.icono" class="iconHeader"></app-iconapp>
+          <span *ngIf="!menu?.icono" class="iconHeader">{{ menu?.auxiliar }}</span>
+          <h3 class="big-title6">{{ 'Menu.' + menu?.nombre | translate }}</h3>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-lg-4"
+          *ngFor="let hijo of menuList | sortBy: 'asc' : 'orden' | filterBy: 'idMenuPadre' : menu?.id">
+          <a [routerLink]="menu?.url + hijo?.url">
+              <div class="box">
+                  <div class="icon">
+                      <div class="image">
+                          <em *ngIf="hijo?.icono" [class]="hijo?.auxiliar"></em>
+                          <span *ngIf="!hijo?.icono">{{ hijo?.auxiliar }}</span>
+                      </div>
+                      <div class="info">
+                          <h3 class="title">{{ hijo?.nombre + '.Titulo' | translate}}</h3>
+                          <div class="more">
+                              <a [routerLink]="menu?.url + hijo?.url">
+                                  {{ 'Generic.IrAlMenu' | translate }}
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="space"></div>
+              </div>
+          </a>
+      </div>
+  </div>
+</div>
