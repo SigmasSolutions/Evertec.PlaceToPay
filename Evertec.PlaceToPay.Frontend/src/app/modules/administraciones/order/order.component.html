@@ -1,12 +1,15 @@
 <section class="container cuore-main_section">
-  <app-title-head [titleName]="'Order.Titulo' | translate"> </app-title-head>
+  <app-title-head [buttonName]="'Generic.Buttons.Crear' | translate" 
+    [titleName]="'Order.Titulo' | translate"
+    (event)="openModal()"> 
+  </app-title-head>
 
   <app-pre-table
     (eventChangeNumber)="numberRecordsData($event)"
     (eventExport)="exportData()"
     (eventUpdateData)="updateData()"
   ></app-pre-table>
-  <div class="table-responsive" *ngIf="listOrder?.Result?.length > 0 || filters">
+  <div class="table-responsive" *ngIf="listOrder?.result?.length > 0 || filters">
     <table
       [ngClass]="defaultStyleTable"
       matSort
@@ -23,65 +26,66 @@
           <th scope="col">
             <app-table-th
               [sort]="sort"
-              [columnName]="'Date'"
-              [typeFilter]="'datetime'"
-              [titleName]="'Order.Labels.date' | translate"
-              (eventChangeFilter)="filterData($event)"
-            ></app-table-th>
-          </th>
-          <th scope="col">
-            <app-table-th
-              [sort]="sort"
-              [columnName]="'GuidLog'"
+              [columnName]="'reference'"
               [typeFilter]="'string'"
-              [titleName]="'Order.Labels.guidLog' | translate"
+              [titleName]="'Order.Labels.Reference' | translate"
               (eventChangeFilter)="filterData($event)"
             ></app-table-th>
           </th>
           <th scope="col">
             <app-table-th
               [sort]="sort"
-              [columnName]="'Message'"
+              [columnName]="'amount'"
               [typeFilter]="'string'"
-              [titleName]="'Order.Labels.message' | translate"
+              [titleName]="'Order.Labels.Amount' | translate"
               (eventChangeFilter)="filterData($event)"
             ></app-table-th>
           </th>
           <th scope="col">
             <app-table-th
               [sort]="sort"
-              [columnName]="'Read'"
-              [typeFilter]="'bool'"
-              [titleName]="'Order.Labels.read' | translate"
-              (eventChangeFilter)="filterData($event)"
-            ></app-table-th>
-          </th>
-          <th scope="col">
-            <app-table-th
-              [sort]="sort"
-              [columnName]="'Active'"
-              [typeFilter]="'bool'"
-              [titleName]="'Order.Labels.active' | translate"
+              [columnName]="'description'"
+              [typeFilter]="'string'"
+              [titleName]="'Order.Labels.Description' | translate"
               (eventChangeFilter)="filterData($event)"
             ></app-table-th>
           </th>
 
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'statusId'"
+              [typeFilter]="'string'"
+              [titleName]="'Order.Labels.StatusId' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
+          <th scope="col">
+            <app-table-th
+              [sort]="sort"
+              [columnName]="'createdAt'"
+              [typeFilter]="'datetime'"
+              [titleName]="'Order.Labels.CreatedAt' | translate"
+              (eventChangeFilter)="filterData($event)"
+            ></app-table-th>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let Item of listOrder?.Result" (dblclick)="openModal(Item)">
-          <td>{{ Item.date | date: inputDatetimeFormat }}</td>
-          <td>{{ Item.guidLog }}</td>
-          <td>{{ Item.message }}</td>
-          <td><app-icon [showIcon]="Item.read"></app-icon></td>
-          <td><app-icon [showIcon]="Item.active"></app-icon></td>
+        <tr *ngFor="let Item of listOrder?.result" (dblclick)="openModal(Item)">
+          <td>{{ Item.reference }}</td>
+          <td>{{ Item.amount }}</td>
+          <td>{{ Item.description }}</td>
+          <td>{{ Item.status.name }}</td>
+          <td>{{ Item.createdAt | date: inputDatetimeFormat }}</td>
+
 
           <td class="d-flex flex-column">
             <app-table-btn
               (updateClick)="openModal(Item)"
               [ActiveDelete]="false"
-              [ActiveUpdate]="false"
+              [ActiveUpdate]="true"
               (varClick)="openModal(Item, true)"
               (eliminarClick)="onDelete(Item)"
             >
@@ -92,7 +96,7 @@
     </table>
   </div>
 
-  <app-no-results [showError]="listOrder?.Result?.length === 0"></app-no-results>
+  <app-no-results [showError]="listOrder?.result?.length === 0"></app-no-results>
   <app-paginator
     (event)="pageData($event)"
     [page]="page"

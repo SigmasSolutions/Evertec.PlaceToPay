@@ -4,21 +4,50 @@
 <div class="modal-body">
    <form novalidate #alertForm="ngForm">
       <div class="form-group row">
-         <label class="col-sm-3 col-form-label" for="txtDescription">{{'Order.Labels.Description' | translate}}</label>
+         <label class="col-sm-3 col-form-label" for="txtAmount">{{'Order.Labels.OrderId' | translate}}</label>
          <div class="col-sm-9">
-            <strong *ngIf="isView">{{ objEntidad.Description }}</strong>
-            <textarea appNumbersLettersOnly *ngIf="!isView" rows="5" [(ngModel)]="objEntidad.Description" name="txaDescription" class="form-control" id="txDescription" placeholder="{{'Order.Placeholder.Description' | translate}}" required></textarea>
+            <strong *ngIf="isView">{{ objEntidad.orderId }}</strong>
+            <input readonly *ngIf="!isView" type="text" [(ngModel)]="objEntidad.orderId" name="txOrder" maxlength ="50" class="form-control" id="txtOrder"/>
          </div>
       </div>
       <div class="form-group row">
+         <label class="col-sm-3 col-form-label" for="txtDescription">{{'Order.Labels.Description' | translate}}</label>
+         <div class="col-sm-9">
+            <strong *ngIf="isView">{{ objEntidad.description }}</strong>
+            <textarea appNumbersLettersOnly *ngIf="!isView" rows="5" [(ngModel)]="objEntidad.description" name="txaDescription" class="form-control" id="txDescription" placeholder="{{'Order.Placeholder.Description' | translate}}" required></textarea>
+         </div>
+      </div>
+      <div class="form-group row">
+         <label class="col-sm-3 col-form-label" for="cbxStatusId">{{
+           'Order.Labels.StatusId' | translate
+         }}</label>
+         <div class="col-sm-9">
+           <strong *ngIf="isView">{{ objEntidad.statusId }}</strong>
+           <ng-select
+             disabled
+             *ngIf="!isView"
+             [(ngModel)]="objEntidad.statusId"
+             name="cbxstatusId"
+             id="cbxStatusId"
+             [items]="lstStatus"
+             [loading]="lstStatus == undefined"
+             bindValue="statusId"
+             bindLabel="name"
+           >
+           </ng-select>
+         </div>
+       </div>
+      <div class="form-group row">
          <label class="col-sm-3 col-form-label" for="txtAmount">{{'Order.Labels.Amount' | translate}}</label>
          <div class="col-sm-9">
-            <strong *ngIf="isView">{{ objEntidad.Amount }}</strong>
-            <input appNumbersOnly *ngIf="!isView" type="text" [(ngModel)]="objEntidad.Amount" name="txAmount" maxlength ="50" class="form-control" id="txtAmount" placeholder="{{'Order.Placeholder.Amount' | translate}}"  required/>
+            <strong *ngIf="isView">{{ objEntidad.amount }}</strong>
+            <input appNumbersOnly *ngIf="!isView" type="text" [(ngModel)]="objEntidad.amount" name="txAmount" maxlength ="50" class="form-control" id="txtAmount" placeholder="{{'Order.Placeholder.Amount' | translate}}"  required/>
          </div>
       </div>
    </form>
 </div>
 
-<app-modal-footer [isViewUpdate]="isUpdate" [isViewData]="isView" [disabled]="alertForm.invalid"
-(cancelClick)="closeModal()" (createClick)="onCreate()" (updateClick)="onUpdate()" (deleteClick)="onDelete()"></app-modal-footer>
+<app-modal-footer [isViewUpdate]="isUpdate" [isViewData]="isView" [isViewPayment]="isPayment" [isViewCreate]="isCreate" [disabled]="alertForm.invalid"
+(cancelClick)="closeModal()" (createClick)="onCreateOrder()" (updateClick)="onUpdate()" (paymentClick)="onPayment()"></app-modal-footer>
+
+

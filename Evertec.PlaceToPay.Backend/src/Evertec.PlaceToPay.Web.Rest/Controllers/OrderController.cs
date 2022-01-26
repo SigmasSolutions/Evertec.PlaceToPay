@@ -20,22 +20,25 @@ namespace Evertec.PlaceToPay.Controllers
             _orderAppService = orderAppService;
         }
 
-        [Authorize]
+        /*[Authorize]*/
+        [AllowAnonymous]
         [HttpGet("GetOrdersByUsers/{userId}")]
         public async Task<ServiceResult<List<Orders>>> GetOrdersByUsers(Guid userId)
         {
             return await _orderAppService.GetOrdersByUsers(userId);
         }
 
-        [Authorize]
+        /*[Authorize]*/
+        [AllowAnonymous]
         [HttpGet("GetOrder/{orderId}")]
         public async Task<ServiceResult<Orders>> GetOrder(Guid orderId)
         {
             return await _orderAppService.GetOrder(orderId);
         }
 
-        [Authorize]
-        [HttpPost("CreateOrder")]
+        /*[Authorize]*/
+        [AllowAnonymous]
+        [HttpPost]
         public async Task<ServiceResult<Orders>> CreateOrder([FromBody] Orders order)
         {
             return await _orderAppService.CreateOrder(order);

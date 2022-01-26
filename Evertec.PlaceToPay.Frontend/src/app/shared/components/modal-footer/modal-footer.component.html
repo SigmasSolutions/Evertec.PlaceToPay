@@ -1,7 +1,7 @@
 <div class="modal-footer" style="display: block;">
-    <app-button-generic [isViewUpdate]="isViewUpdate" [isViewData]="isViewData" [disabled]="disabled"
+    <app-button-generic [isViewUpdate]="isViewUpdate" [isViewData]="isViewData" [isViewPayment]="isViewPayment" [isViewCreate]="isViewCreate" [disabled]="disabled"
         [ActiveDelete]="ActiveDelete" [iconCreate]="iconCreate" [iconUpdate]="iconUpdate" [iconDelete]="iconDelete"
-        [iconCancel]="iconCancel" (cancelClick)="onCancelClick($event)" (createClick)="onCreateClick($event)"
-        (updateClick)="onUpdateClick($event)" (deleteClick)="onDeleteClick($event)">
+        [iconCancel]="iconCancel" [iconPayment]="iconPayment" (cancelClick)="onCancelClick($event)" (createClick)="onCreateClick($event)"
+        (updateClick)="onUpdateClick($event)" (deleteClick)="onDeleteClick($event)" (paymentClick)="onPaymentClick($event)" >
     </app-button-generic>
 </div>

@@ -1,26 +1,25 @@
-import { BaseListPaged } from '@appcore/objects/baselist.paged.object';
+import { BaseServiceResult, BaseServiceSingleResult } from '@appcore/objects/baselist.serviceResult.object';
 
 export interface User {
-    idUser?: number;
-    image?: string;
-    identification?: string;
-    fullName?: string;
+    userId?: number;
+    name?: string;
     email?: string;
-    password?: string;
-    idProfile?: number;
-    profile_Name ?: string;
-    idCompany?: number;
-    company_Name ?: string;
-    birthdayDate?: string;
-    llastAdmissionDate?: string;
-    active?: boolean;
-    locked?: boolean;
 }
 
 export interface Login {
-  username?: string;
+  email?: string;
   password?: string;
 }
 
-export interface UserPaged
-    extends BaseListPaged<User> { }
+export interface UserToken {
+  userId?: string;
+  token?: string;
+  email?: string;
+}
+
+export interface UserTokenResult
+  extends BaseServiceSingleResult<UserToken> { }
+
+
+export interface UserResult
+    extends BaseServiceResult<User> { }

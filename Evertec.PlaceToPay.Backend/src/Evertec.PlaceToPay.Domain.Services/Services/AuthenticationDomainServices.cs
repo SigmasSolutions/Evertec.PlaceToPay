@@ -60,7 +60,7 @@ namespace Evertec.PlaceToPay.Domain.Services
         private long ToUnixEpochDate(DateTime date)
           => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
 
-        public async Task<string> GetNewToken(Users user)
+        public async Task<object> GetNewToken(Users user)
         {
             string token = string.Empty;
             List<Claim> claims = new List<Claim>();
@@ -86,9 +86,9 @@ namespace Evertec.PlaceToPay.Domain.Services
                 email = user.Email,
             };
 
-            var json = JsonConvert.SerializeObject(response, serializerSettings);
+            var json = JsonConvert.SerializeObject(response);
 
-            return json;
+            return response;
         }
     }
 }

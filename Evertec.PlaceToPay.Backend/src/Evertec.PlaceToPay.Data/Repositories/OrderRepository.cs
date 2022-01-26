@@ -32,7 +32,9 @@ namespace Evertec.PlaceToPay.Data.Repositories
 
         public async Task<List<Orders>> GetOrdersByUsers(Guid userId)
         {
-            return await this.RepositoryContext.Set<Orders>().Where(x => x.UserId == userId).ToListAsync();
+            return await this.RepositoryContext.Orders
+                .Include(x => x.Status)
+                .Where(x => x.UserId == userId).OrderByDescending(y => y.Reference).ToListAsync();
         }
     }
 }

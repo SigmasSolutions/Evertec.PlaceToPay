@@ -13,7 +13,7 @@
       "Amount": "Monto orden"
     },
     "Placeholder": {
-      "Reference": "Ingrese el monto de la orden",
+      "Amount": "Ingrese el monto de la orden",
       "Description": "Ingrese la descripción producto"
     }
   },
@@ -80,7 +80,8 @@
       "No": "No",
       "ActualizarDatos": "Actualizar datos",
       "Aceptar": "Aceptar",
-      "NoActualizar": "No actualizar"
+      "NoActualizar": "No actualizar",
+      "Payment": "Pagar"
     },
     "Messages": {
       "NoResults": "No se encontraron registros para mostrar.",

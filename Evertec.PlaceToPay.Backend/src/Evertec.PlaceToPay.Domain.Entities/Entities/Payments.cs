@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Evertec.PlaceToPay.Domain.Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,6 +15,9 @@ namespace Evertec.PlaceToPay.Domain.Entities
 
         public virtual Orders Order { get; set; }
         public string ProcessUrl { get; set; }
+
+        [NotMapped]
+        public Payer payer { get; set; }
 
         public int RequestId { get; set; }
     }

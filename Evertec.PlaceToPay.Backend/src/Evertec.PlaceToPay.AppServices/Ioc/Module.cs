@@ -14,6 +14,7 @@ namespace Evertec.PlaceToPay.AppServices.Ioc
             dic.Add(typeof(IAccountAppService), typeof(AccountAppServices));
             dic.Add(typeof(IOrderAppService), typeof(OrderAppServices));
             dic.Add(typeof(IPaymentAppService), typeof(PaymentAppServices));
+            dic.Add(typeof(IStatusAppService), typeof(StatusAppServices));
             return dic;
         }
     }

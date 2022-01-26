@@ -15,6 +15,7 @@ namespace Evertec.PlaceToPay.Data.Ioc
                 {typeof (IOrderRepository), typeof (OrderRepository) },
                 {typeof (IPaymentRepository), typeof (PaymentRepository) },
                 {typeof (IAuthenticationRepository), typeof (AuthenticationRepository) },
+                {typeof (IStatusRepository), typeof (StatusRepository) },
             };
 
             return dic;

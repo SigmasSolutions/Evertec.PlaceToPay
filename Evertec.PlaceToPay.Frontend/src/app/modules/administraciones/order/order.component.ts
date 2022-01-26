@@ -5,6 +5,8 @@ import { MessageService } from '@appcore/services/message.service';
 import { OrderService } from './services/order.service';
 import { Order, OrderResult } from './services/order.object';
 import { OrderModalComponent } from './modals/order.modal.component';
+import { LocalStorageService } from 'ngx-localstorage';
+import {  UserTokenResult } from './../user/services/user.object';
 
 @Component({
   selector: 'app-order',
@@ -15,18 +17,22 @@ export class OrderComponent extends BaseListComponent<Order> implements OnInit {
 
   constructor(readonly orderService: OrderService,
               readonly modalService: NgbModal,
-              readonly messageService: MessageService) {
+              readonly messageService: MessageService,
+              readonly localStorage: LocalStorageService) {
     super(orderService, modalService, messageService);
   }
 
   ngOnInit() {
     this.$Modal = OrderModalComponent;
+    const user: UserTokenResult = JSON.parse(this.localStorage.get("user"));
     this.$ListOrdered = () => {
-      this.orderService.getOrders("C673086D-2BEC-4B4B-9A9A-3DD9D0A28B53")
-             .subscribe((res: OrderResult) => { this.listOrder = res; });
+      this.orderService.getOrders(user.result.userId)
+             .subscribe((res: OrderResult) => { 
+               this.listOrder = res; 
+          });
     };
     this.$ListOrdered();
   }
 
-  onDelete(item: Order) { this.Delete(item.OrderId); }
+  onDelete(item: Order) { this.Delete(item.orderId); }
 }

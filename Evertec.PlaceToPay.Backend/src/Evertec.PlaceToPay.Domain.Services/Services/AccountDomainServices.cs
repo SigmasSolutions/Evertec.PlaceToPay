@@ -40,6 +40,7 @@ namespace Evertec.PlaceToPay.Domain.Services
                     ValidationFailure validationFailure = new ValidationFailure("User", MessageError.InvalidCredentials);
                     result.Errors = new List<ValidationFailure>() { validationFailure };
                     result.Success = false;
+                    return new UnauthorizedResult();
                 }
                 else
                 {

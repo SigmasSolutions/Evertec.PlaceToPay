@@ -8,6 +8,7 @@ namespace Evertec.PlaceToPay.Domain.Models
     {
         Created = 1,
         Payed = 2,
-        Rejected = 3
+        Rejected = 3,
+        Pending = 4
     }
 }

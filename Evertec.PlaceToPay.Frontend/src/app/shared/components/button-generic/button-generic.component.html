@@ -9,7 +9,7 @@
         <app-iconapp [icon]="iconDelete" class="cuore-btn_ico"></app-iconapp>
         <span class="cuore-btn_label">{{'Generic.Buttons.Eliminar' | translate}}</span>
     </button>
-    <button *ngIf="!isViewUpdate && !isViewData" type="submit"
+    <button *ngIf="!isViewUpdate && !isViewData && isViewCreate" type="submit"
         class="cuore-btn cuore-btn--primary col-xs col-sm col-md-3 mb-1" (click)="onCreateClick($event)"
         [disabled]="disabled">
         <app-iconapp [icon]="iconCreate" class="cuore-btn_ico"></app-iconapp>
@@ -19,5 +19,10 @@
         (click)="onUpdateClick($event)" [disabled]="disabled">
         <app-iconapp [icon]="iconUpdate" class="cuore-btn_ico"></app-iconapp>
         <span class="cuore-btn_label">{{'Generic.Buttons.Guardar' | translate}}</span>
+    </button>
+    <button *ngIf="isViewPayment" type="button" class="cuore-btn cuore-btn--primary col-xs col-sm col-md-3 mb-1"
+        (click)="onPaymentClick($event)" [disabled]="disabled">
+        <app-iconapp [icon]="iconPayment" class="cuore-btn_ico"></app-iconapp>
+        <span class="cuore-btn_label">{{'Generic.Buttons.Payment' | translate}}</span>
     </button>
 </div>

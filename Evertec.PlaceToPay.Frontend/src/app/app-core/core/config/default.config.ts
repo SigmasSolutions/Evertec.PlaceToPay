@@ -28,7 +28,7 @@ export class DefaultConfig {
             Cancel: 'times',
             View: 'eye',
             TitleHead: 'list-ul',
-
+            Payment: 'shopping-cart',
             Check: 'check-circle',
             UnCheck: 'times-circle'
         }

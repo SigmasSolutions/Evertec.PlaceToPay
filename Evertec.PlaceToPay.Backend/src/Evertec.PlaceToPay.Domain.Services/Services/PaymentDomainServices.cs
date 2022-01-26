@@ -57,7 +57,6 @@ namespace Evertec.PlaceToPay.Domain.Services
                     result.Errors = new List<ValidationFailure>() { validationFailure };
                     result.Success = false;
                 }
-
             }
             catch (Exception ex)
             {
@@ -82,7 +81,9 @@ namespace Evertec.PlaceToPay.Domain.Services
                 var response = await httpClient.PostAsync($"{_configuration["BaseUrlPlaceToPay"]}/{payment.RequestId}", new StringContent(request, Encoding.UTF8, "application/json"));
                 ResponsePlaceToPay responsePlaceToPay = JsonConvert.DeserializeObject<ResponsePlaceToPay>(await response.Content.ReadAsStringAsync());
                 Payments paymentUpdate = await UpdatePayment(payment, responsePlaceToPay);
-                await UpdateOrder(orderId, responsePlaceToPay);
+                Orders order = await UpdateOrder(orderId, responsePlaceToPay);
+                paymentUpdate.Order = order;
+                paymentUpdate.payer = responsePlaceToPay.request.payer;
                 result.Result = paymentUpdate;
                 result.Success = true;
 
@@ -117,6 +118,9 @@ namespace Evertec.PlaceToPay.Domain.Services
                 case "REJECTED":
                     statusEnum = StatusEnum.Rejected;
                     break;
+                case "PENDING":
+                    statusEnum = StatusEnum.Pending;
+                    break;
                 default:
                     break;
             }
@@ -124,12 +128,13 @@ namespace Evertec.PlaceToPay.Domain.Services
             return statusEnum;
         }
 
-        private async Task UpdateOrder(Guid orderId, ResponsePlaceToPay responsePlaceToPay)
+        private async Task<Orders> UpdateOrder(Guid orderId, ResponsePlaceToPay responsePlaceToPay)
         {
             StatusEnum status = GetStatusPayment(responsePlaceToPay.status.status);
             Orders order = await _orderRepository.GetOrder(orderId);
             order.StatusId = (int)status;
             await _orderRepository.Update(order);
+            return order;
         }
 
         private CreateRequestQuery BuildCreateRequestQuery()

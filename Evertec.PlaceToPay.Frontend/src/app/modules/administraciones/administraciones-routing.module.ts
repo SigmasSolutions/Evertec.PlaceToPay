@@ -5,7 +5,7 @@ import { AdministracionesComponent } from './administraciones.component';
 import { AdministracionesSpecificCanActivateGuard } from '../../app-core/guards';
 
 import { OrderComponent } from './order/order.component';
-import { StateComponent } from './state/state.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const AdministracionesRoutes: Routes = [
   {
@@ -21,9 +21,9 @@ const AdministracionesRoutes: Routes = [
     canActivate: [AdministracionesSpecificCanActivateGuard],
   },
   {
-    path: 'state',
-    component: StateComponent,
-    data: { breadcrumb: 'State' },
+    path: 'payment/:orderId/:paymentId',
+    component: PaymentComponent,
+    data: { breadcrumb: 'Payment' },
     canActivate: [AdministracionesSpecificCanActivateGuard],
   },
 ];

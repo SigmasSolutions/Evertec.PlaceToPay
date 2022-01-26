@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   inicarSession() {
     this.recaptchaV3Service.execute('inicarSession').subscribe((token) => {
       this.userService
-        .postMethodExterno('Authenticate', 'login', this.login)
+        .postMethodExterno('Account', 'Login', this.login)
         .subscribe((res: any) => {
           this.localStorageServ.set('user', JSON.stringify(res));
           this.router.navigate(['/']);

@@ -14,6 +14,7 @@ namespace Evertec.PlaceToPay.Domain.Services.IoC
                 {typeof (IOrderDomainService), typeof (OrderDomainServices) },
                 {typeof (IPaymentDomainService), typeof (PaymentDomainServices) },
                 {typeof (IAuthenticationDomainService), typeof (AuthenticationDomainServices) },
+                {typeof (IStatusDomainService), typeof (StatusDomainServices) },
             };
 
             return dic;
