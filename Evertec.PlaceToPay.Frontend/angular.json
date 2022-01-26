@@ -31,7 +31,8 @@
               "src/assets/img/logo.svg",
               "src/assets/img/Loader.gif",
               "src/manifest.webmanifest",
-              "src/assets/img/avatar.png"
+              "src/assets/img/avatar.png",
+              "src/assets/img/placetopay.png" 
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.css",

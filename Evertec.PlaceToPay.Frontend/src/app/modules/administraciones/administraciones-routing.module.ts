@@ -1,29 +1,29 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
-import { AdministracionesComponent } from './administraciones.component';
-import { AdministracionesSpecificCanActivateGuard } from '../../app-core/guards';
+import { AdministracionesComponent } from "./administraciones.component";
+import { AdministracionesSpecificCanActivateGuard } from "../../app-core/guards";
 
-import { OrderComponent } from './order/order.component';
-import { PaymentComponent } from './payment/payment.component';
+import { OrderComponent } from "./order/order.component";
+import { PaymentComponent } from "./payment/payment.component";
 
 const AdministracionesRoutes: Routes = [
   {
-    path: '',
+    path: "",
     component: AdministracionesComponent,
     canActivate: [AdministracionesSpecificCanActivateGuard],
   },
 
   {
-    path: 'order',
+    path: "order",
     component: OrderComponent,
-    data: { breadcrumb: 'Order' },
+    data: { breadcrumb: "Order" },
     canActivate: [AdministracionesSpecificCanActivateGuard],
   },
   {
-    path: 'payment/:orderId/:paymentId',
+    path: "payment/:orderId/:paymentId",
     component: PaymentComponent,
-    data: { breadcrumb: 'Payment' },
+    data: { breadcrumb: "Payment" },
     canActivate: [AdministracionesSpecificCanActivateGuard],
   },
 ];
@@ -31,4 +31,4 @@ const AdministracionesRoutes: Routes = [
   imports: [RouterModule.forChild(AdministracionesRoutes)],
   exports: [RouterModule],
 })
-export class AdministracionesRoutingModule {} 
+export class AdministracionesRoutingModule {}

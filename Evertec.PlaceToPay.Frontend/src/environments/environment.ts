@@ -10,8 +10,7 @@ export const environment = {
   baseAPI: 'https://localhost:44305/api/',
   subscriptionKey: '',
   apiKeyMap: 'AIzaSyD_1bL630os1u4dFjw_92k-iWkLemTHd9U',
-  apikeyReCapchat: '6LcQ9wwaAAAAAFgO7jM1-O5wyTgfvOCHCRDOC5yd',
-  urlEndPointSocket: 'https://websocketcuore.azurewebsites.net'
+  apikeyReCapchat: '6LcQ9wwaAAAAAFgO7jM1-O5wyTgfvOCHCRDOC5yd'
 };
 
 /*

@@ -43,8 +43,8 @@
     }
   },
   "TextosAplicacion": {
-    "PageTitle": "CUORE",
-    "Titulo": "CUORE",
+    "PageTitle": "Test PlaceToPay",
+    "Titulo": "Test PlaceToPay",
     "RegistrosMostrados": "Mostrados {{recordsFrom}} a {{recordsTo}} de <span class='badge badge-pill badge-primary'>{{maxCount}}</span> registros encontrados.",
     "NumeroPaginas": "Página <strong>{{page}} / {{totalPages}}</strong>",
     "TotalRegistros": "Total registros: <span class='badge badge-pill badge-primary'><b>{{maxCount}}</b></span>",
@@ -58,8 +58,7 @@
   },
   "Menu": {
     "Home": "DashBoard",
-    "Configuracion": "Configuraciones",
-    "Registro": "Registro de tanques"
+    "Configuracion": "Órdenes"
   },
   "Generic": {
     "Buttons": {

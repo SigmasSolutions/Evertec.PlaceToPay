@@ -1,7 +1,7 @@
 [
   {
     "id": 1001,
-    "auxiliar": "cog",
+    "auxiliar": "file-invoice",
     "nombre": "Configuracion",
     "url": "/administrativo",
     "icono": true,
