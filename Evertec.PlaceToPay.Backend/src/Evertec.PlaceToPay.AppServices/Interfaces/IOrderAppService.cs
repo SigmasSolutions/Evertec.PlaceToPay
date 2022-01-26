@@ -11,5 +11,6 @@ namespace Evertec.PlaceToPay.AppServices.Interfaces
         public Task<ServiceResult<List<Orders>>> GetOrdersByUsers(Guid userId);
         public Task<ServiceResult<Orders>> GetOrder(Guid orderId);
         public Task<ServiceResult<Orders>> CreateOrder(Orders order);
+        public Task<ServiceResult<Orders>> UpdateOrder(Orders order);
     }
 }

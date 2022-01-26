@@ -56,5 +56,25 @@ namespace Evertec.PlaceToPay.Domain.Services
             result.Success = true;
             return result;
         }
+
+        public async Task<ServiceResult<Orders>> UpdateOrder(Orders order)
+        {
+            ServiceResult<Orders> result = new ServiceResult<Orders>();
+
+            try
+            {
+                await _repository.Update(order);
+                result.Success = true;
+                result.Result = order;
+            }
+            catch (Exception ex)
+            {
+                ValidationFailure validationFailure = new ValidationFailure("Order", ex.Message);
+                result.Errors = new List<ValidationFailure>() { validationFailure };
+                result.Success = false;
+            }
+
+            return result;
+        }
     }
 }

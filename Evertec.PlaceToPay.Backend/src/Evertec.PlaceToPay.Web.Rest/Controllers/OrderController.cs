@@ -43,5 +43,13 @@ namespace Evertec.PlaceToPay.Controllers
         {
             return await _orderAppService.CreateOrder(order);
         }
+
+        /*[Authorize]*/
+        [AllowAnonymous]
+        [HttpPut]
+        public async Task<ServiceResult<Orders>> UpdateOrder([FromBody] Orders order)
+        {
+            return await _orderAppService.UpdateOrder(order);
+        }
     }
 }
